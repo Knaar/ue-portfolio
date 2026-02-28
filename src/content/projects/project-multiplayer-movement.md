@@ -1,20 +1,21 @@
 ---
-title: "Multiplayer Movement & Prediction"
-summary: "Улучшил плавность сетевого движения и сократил заметные рассинхроны на клиенте."
-role: "UE Network Programmer"
-period: "2024"
+title: "OpenVus: Online Learning Platform"
+summary: "Разработка сетевой 3D-платформы дистанционного обучения на UE4/UE5."
+role: "Unreal Engine Developer"
+period: "2022-2023"
 stack:
-  - "Unreal Engine 5"
+  - "Unreal Engine 4/5"
   - "C++"
-  - "Replication"
-  - "Profiling"
+  - "Blueprints"
+  - "MetaHuman"
+  - "ALSV4"
 highlights:
-  - "Перенастроил репликацию movement-state для нестабильного пинга."
-  - "Снизил количество критичных correction spikes в стресс-сценах."
-  - "Подготовил тестовые сценарии для QA с сетевыми профилями."
+  - "Реализовал сетевую архитектуру для локальных и dedicated серверов."
+  - "Добавил модули авторизации, локализации и пользовательских настроек."
+  - "Оптимизировал голосовой чат и производительность с использованием Unreal Insights."
 links:
-  - label: "Tech Notes"
-    url: "https://example.com/tech-notes"
+  - label: "Portfolio"
+    url: "https://knaar.github.io/ue-portfolio/"
 ---
-Работа велась вместе с QA и дизайнерами уровней, чтобы уравнять требования
-к feel управления и реалистичности поведения персонажа в сетевой игре.
+Кейс о продуктовой разработке non-game 3D-сервиса: стабильная работа в сети, удобство
+пользователя и поддерживаемая кодовая база для развития платформы.

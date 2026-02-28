@@ -1,21 +1,21 @@
 ---
-title: "Modular Combat Framework"
-summary: "Собрал расширяемую систему ближнего боя с комбо, hit reaction и data-driven настройкой."
-role: "Lead Gameplay Programmer"
-period: "2025"
+title: "LBE VR Shooter Core Systems"
+summary: "Разработка ядра мультиплеерного VR-шутера для LBE Arena на UE4/UE5."
+role: "Lead UE C++ Developer"
+period: "2023-2026"
 stack:
-  - "Unreal Engine 5"
+  - "Unreal Engine 4/5"
   - "C++"
-  - "Blueprint"
-  - "Animation Montages"
+  - "Blueprints"
+  - "Advanced Sessions"
+  - "Oculus / Pico"
 highlights:
-  - "Вынес логику способностей в переиспользуемые C++ компоненты."
-  - "Сократил время добавления нового оружия за счет Data Assets."
-  - "Добавил debug overlay для проверки окон урона и состояний."
+  - "Спроектировал сетевую архитектуру проекта и стабилизировал gameplay-синхронизацию."
+  - "Организовал релизный контур под Oculus, Pico и Windows с едиными правилами сборки."
+  - "Ускорил выпуск фич через модульный подход и техпроцесс с код-ревью."
 links:
-  - label: "Showreel"
-    url: "https://example.com/showreel"
+  - label: "Portfolio"
+    url: "https://knaar.github.io/ue-portfolio/"
 ---
-Система рассчитана на быстрое прототипирование новых врагов и оружия без дублирования
-кода. Основной упор был на читабельность state-переходов и сохранение отзывчивости
-управления при высокой нагрузке на анимационный граф.
+Кейс про системную часть продукта: multiplayer, интеграция VR-оборудования, эксплуатационная
+стабильность и управление разработкой игровых фич от идеи до релиза.

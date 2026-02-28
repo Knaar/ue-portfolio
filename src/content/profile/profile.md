@@ -1,33 +1,44 @@
 ---
-name: "Ваше Имя"
-title: "Unreal Engine Gameplay Programmer"
-location: "Remote / Europe"
-email: "your.email@example.com"
-telegram: "https://t.me/your_username"
-github: "https://github.com/your_username"
-linkedin: "https://www.linkedin.com/in/your_username"
-artstation: "https://www.artstation.com/your_username"
+name: "Антон Бордунос"
+title: "Senior / Lead Unreal Engine C++ Developer (VR / Multiplayer)"
+location: "Санкт-Петербург, Россия"
+email: "mr.bordunos@mail.ru"
+telegram: "https://t.me/mrBordunos"
+github: "https://github.com/Knaar"
+linkedin: "https://www.linkedin.com"
+artstation: "https://www.artstation.com"
 skills:
   - "Unreal Engine 5"
+  - "Unreal Engine 4"
   - "C++"
   - "Blueprints"
-  - "Gameplay Ability System"
-  - "Multiplayer Replication"
-  - "Optimization"
+  - "UE Multiplayer"
+  - "Replication"
+  - "Dedicated Server"
+  - "VR (Oculus, Pico)"
+  - "Unreal Insights"
+  - "Niagara"
+  - "UMG"
+  - "AI Behavior Tree / EQS"
+  - "Git / GitHub"
+  - "Python"
 focus:
-  - "Combat Systems"
-  - "AI Behavior"
-  - "Player Movement"
-  - "Technical Design"
+  - "VR Multiplayer"
+  - "Gameplay Systems"
+  - "Network Architecture"
+  - "Performance Optimization"
 ---
 ## Подход к работе
 
-Я строю геймплейные системы так, чтобы ими удобно было пользоваться всей команде:
-дизайнерам, QA и другим программистам. Для этого стараюсь держать код модульным,
-покрывать спорные места быстрыми дебаг-инструментами и документировать ключевые решения.
+UE4/UE5 разработчик с фокусом на VR и мультиплеерные системы. Разрабатываю gameplay
+и сетевую архитектуру на C++ и Blueprints, сопровождаю фичи от прототипа до релиза.
+Силен в оптимизации производительности под VR-устройства и профилировании CPU/GPU.
 
 ## Как я работаю с качеством
 
 - Начинаю с воспроизводимого кейса и телеметрии.
 - Проверяю влияние на network, performance и UX.
-- Фиксирую выводы и шаги в коротких техзаметках.
+- Фиксирую решения и риски в техзаметках для команды.
+- Держу фокус на стабильных сборках и предсказуемом релизном цикле.
+
+Контакт для быстрой связи: Telegram @mrBordunos
