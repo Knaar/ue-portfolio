@@ -3,49 +3,53 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const experience = [
   {
-    period: "Апрель 2023 - настоящее время",
-    role: "PORTAL TECH - Lead UE C++ программист",
+    key: 1,
+    period: "Apr 2023 - Present",
+    role: "PORTAL TECH - Lead UE C++ Programmer",
     details:
-      "Веду разработку мультиплеерного VR-шутера для LBE Arena на UE4/UE5. Проектирую и поддерживаю сетевую архитектуру (C++/Blueprints), включая интеграцию Advanced Sessions и собственных решений. Интегрировал и стабилизировал VR-оборудование (Oculus, Pico), улучшал производительность по FPS/latency/load. Руководил реализацией игровых фич: от ТЗ и прототипа до внутреннего тестирования и релизной сборки. Разрабатывал визуальные и UI-системы (Niagara, UMG, анимации, материалы) совместно с арт/дизайн-командой. Контролировал процесс сборок и релизов под Oculus, Pico, Windows и выделенные серверы."
+      "Led multiplayer VR shooter development for LBE Arena on UE4/UE5. Designed and maintained network architecture (C++/Blueprints), integrated Advanced Sessions and custom solutions, stabilized Oculus/Pico pipelines, improved FPS/latency/load, and drove feature delivery from design docs to release builds."
   },
   {
-    period: "Апрель 2022 - Май 2023",
+    key: 2,
+    period: "Apr 2022 - May 2023",
     role: "OpenVus - Unreal Engine Developer",
     details:
-      "Создавал интерактивные архитектурные VR-проекты на UE4/UE5. Реализовывал игровую логику, интерактив, освещение и анимационные сценарии (Blueprints/C++). Оптимизировал 3D-ассеты и сцены для стабильной работы в VR. Готовил и проводил VR-презентации, включая настройку оборудования и техническое сопровождение."
+      "Built interactive architectural VR projects on UE4/UE5, implemented gameplay/interaction/lighting pipelines (Blueprints/C++), optimized scenes for stable VR runtime, and handled technical support for demo sessions."
   },
   {
-    period: "Июнь 2021 - Апрель 2022",
+    key: 3,
+    period: "Jun 2021 - Apr 2022",
     role: "Prostranstvo VR - UE Tech Artist / Unreal Developer",
     details:
-      "Создавал интерактивные архитектурные VR-проекты на UE4/UE5. Реализовывал игровую логику, интерактив, освещение и анимационные сценарии (Blueprints/C++). Оптимизировал 3D-ассеты и сцены для стабильной работы в VR. Готовил и проводил VR-презентации, включая настройку оборудования и техническое сопровождение."
+      "Delivered interactive VR architectural content on UE4/UE5, built logic and visual scenarios, optimized assets and level performance, and supported equipment setup for client-facing presentations."
   },
   {
-    period: "Январь 2018 - Март 2021",
-    role: "Фриланс - Frontend / Backend Web Developer",
+    key: 4,
+    period: "Jan 2018 - Mar 2021",
+    role: "Freelance - Frontend / Backend Web Developer",
     details:
-      "Разрабатывал сайты и лендинги на конструкторах (Tilda/WordPress и другие CMS) под задачи малого бизнеса. Кастомизировал frontend: HTML/CSS/JavaScript, адаптивная верстка, UX-правки и ускорение загрузки. Выполнял backend-задачи: формы, обработка данных, API-интеграции, базовая серверная логика на Python/PHP. Настраивал домены, хостинг, деплой и базовое SEO."
+      "Developed websites/landing pages (Tilda/WordPress and other CMS), customized frontend (HTML/CSS/JS), handled backend integrations and API flows, automated tasks with Python/PHP, and configured hosting/deployment basics."
   }
 ];
 ---
 
 <BaseLayout
-  title="Опыт работы | UE Programmer Portfolio"
-  description="Роли, ответственность и продуктовый вклад Антона Бордуноса."
+  title="Experience | UE Programmer Portfolio"
+  description="Roles, ownership, and product impact."
 >
   <section class="hero">
-    <h1 data-i18n="experience.title">Опыт работы</h1>
-    <p data-i18n="experience.subtitle">Роли, ответственность и вклад в продукт на ключевых этапах карьеры.</p>
+    <h1 data-i18n="experience.title">Experience</h1>
+    <p data-i18n="experience.subtitle">Roles, responsibilities, and product impact.</p>
   </section>
 
   <section class="cards">
     {experience.map((item) => (
       <article class="card">
         <p>
-          <strong>{item.period}</strong>
+          <strong data-i18n={`experience.item.${item.key}.period`}>{item.period}</strong>
         </p>
-        <h2>{item.role}</h2>
-        <p>{item.details}</p>
+        <h2 data-i18n={`experience.item.${item.key}.role`}>{item.role}</h2>
+        <p data-i18n={`experience.item.${item.key}.details`}>{item.details}</p>
       </article>
     ))}
   </section>

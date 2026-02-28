@@ -10,28 +10,32 @@ const projects = (await getCollection("projects"))
 const baseUrl = import.meta.env.BASE_URL;
 const experience = [
   {
-    period: "2023 - н.в.",
-    role: "Lead UE C++ Developer, PORTAL TECH",
+    key: 1,
+    period: "Apr 2023 - Present",
+    role: "PORTAL TECH - Lead UE C++ Programmer",
     details:
-      "Лид и фичмейкер в VR-продукте: единая core-платформа, релизы 7 игровых продуктов, координация разработки с 3 до 20+ человек в штате."
+      "Lead multiplayer VR shooter development for LBE Arena on UE4/UE5, including networking and release flow."
   },
   {
-    period: "2022 - 2023",
-    role: "Unreal Engine Developer, OpenVus",
+    key: 2,
+    period: "Apr 2022 - May 2023",
+    role: "OpenVus - Unreal Engine Developer",
     details:
-      "Сетевое 3D-приложение для дистанционного обучения на UE4/UE5: голосовой чат, интерактивная среда, готовый рабочий билд."
+      "Built interactive architectural VR projects on UE4/UE5 with gameplay, optimization, and technical demos."
   },
   {
-    period: "2021 - 2022",
-    role: "UE Tech Artist / Developer, Prostranstvo",
+    key: 3,
+    period: "Jun 2021 - Apr 2022",
+    role: "Prostranstvo VR - UE Tech Artist / Unreal Developer",
     details:
-      "VR-туры и презентационные сцены для заказчиков: интерактив, оптимизация и техническое сопровождение показов."
+      "Delivered VR scenes and interactions with performance tuning and on-site presentation support."
   },
   {
-    period: "2018 - 2021",
-    role: "Frontend / Backend Developer (Freelance)",
+    key: 4,
+    period: "Jan 2018 - Mar 2021",
+    role: "Freelance - Frontend / Backend Web Developer",
     details:
-      "Сайты на конструкторах и CMS, frontend-кастомизация, backend-задачи и автоматизация на Python."
+      "Delivered websites, frontend customization, backend integrations, and Python/PHP automation."
   }
 ];
 
@@ -53,9 +57,9 @@ const contacts = [
       <h1>{profile.data.name}</h1>
       <p>{profile.data.title}</p>
       <div>
-        <a href="#experience" data-i18n="home.cta.experience">Смотреть опыт</a>
+        <a href="#experience" data-i18n="home.cta.experience">View experience</a>
         <span> · </span>
-        <a href="#about" data-i18n="home.cta.about">Подробнее обо мне</a>
+        <a href="#about" data-i18n="home.cta.about">About me</a>
       </div>
     </div>
     <div class="avatar-wrap">
@@ -70,7 +74,7 @@ const contacts = [
 
   <section class="grid-2">
     <article class="card">
-      <h2 data-i18n="home.focus.title">Фокус</h2>
+      <h2 data-i18n="home.focus.title">Focus</h2>
       <ul class="tag-list">
         {profile.data.focus.map((item) => (
           <li class="tag">{item}</li>
@@ -78,7 +82,7 @@ const contacts = [
       </ul>
     </article>
     <article class="card">
-      <h2 data-i18n="home.skills.title">Ключевые навыки</h2>
+      <h2 data-i18n="home.skills.title">Core skills</h2>
       <ul class="tag-list">
         {profile.data.skills.map((skill) => (
           <li class="tag">{skill}</li>
@@ -88,52 +92,53 @@ const contacts = [
   </section>
 
   <section id="experience">
-    <h2 data-i18n="home.experience.title">Опыт работы</h2>
+    <h2 data-i18n="home.experience.title">Work experience</h2>
     <div class="cards">
       {experience.map((item) => (
         <article class="card">
           <p>
-            <strong>{item.period}</strong>
+            <strong data-i18n={`home.exp.${item.key}.period`}>{item.period}</strong>
           </p>
-          <h3>{item.role}</h3>
-          <p>{item.details}</p>
+          <h3 data-i18n={`home.exp.${item.key}.role`}>{item.role}</h3>
+          <p data-i18n={`home.exp.${item.key}.details`}>{item.details}</p>
         </article>
       ))}
     </div>
     <p>
-      <a href={`${baseUrl}experience/`} data-i18n="home.experience.more">Открыть полный таймлайн</a>
+      <a href={`${baseUrl}experience/`} data-i18n="home.experience.more">Open full timeline</a>
     </p>
   </section>
 
   <section id="projects">
-    <h2 data-i18n="home.projects.title">Проекты</h2>
+    <h2 data-i18n="home.projects.title">Projects</h2>
     <div class="cards">
       {projects.map((project) => (
         <article class="card">
           <h3>{project.data.title}</h3>
           <p>{project.data.summary}</p>
           <p>
-            <strong>Роль:</strong> {project.data.role} · <strong>Период:</strong>{" "}
+            <strong data-i18n="home.projects.label.role">Role:</strong> {project.data.role} ·{" "}
+            <strong data-i18n="home.projects.label.period">Period:</strong>{" "}
             {project.data.period}
           </p>
         </article>
       ))}
     </div>
     <p>
-      <a href={`${baseUrl}projects/`} data-i18n="home.projects.more">Открыть все проекты</a>
+      <a href={`${baseUrl}projects/`} data-i18n="home.projects.more">Open all projects</a>
     </p>
   </section>
 
   <section class="grid-2" id="about">
     <article class="card">
-      <h2 data-i18n="home.about.title">Обо мне</h2>
+      <h2 data-i18n="home.about.title">About</h2>
       <Content />
       <p>
-        <a href={`${baseUrl}about/`} data-i18n="home.about.more">Открыть расширенную версию</a>
+        <a href={`${baseUrl}about/`} data-i18n="home.about.more">Open full version</a>
       </p>
     </article>
     <article class="card">
-      <h2 data-i18n="home.contacts.title">Контакты</h2>
+      <h2 data-i18n="home.contacts.title">Contacts</h2>
       <ul>
         {contacts.map((contact) => (
           <li>

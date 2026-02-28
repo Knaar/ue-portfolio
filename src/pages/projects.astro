@@ -9,15 +9,14 @@ const sortedProjects = projects.sort((a, b) =>
 ---
 
 <BaseLayout
-  title="Проекты | UE Programmer Portfolio"
-  description="Кейсы по геймплейным, сетевым и тулзовым системам в Unreal Engine."
+  title="Projects | UE Programmer Portfolio"
+  description="Gameplay, networking, and tools case studies in Unreal Engine."
 >
   <section class="hero">
-    <span class="badge">Project Cases</span>
-    <h1 data-i18n="projects.title">Проекты</h1>
+    <span class="badge" data-i18n="projects.badge">Project Cases</span>
+    <h1 data-i18n="projects.title">Projects</h1>
     <p data-i18n="projects.subtitle">
-      Подборка кейсов с акцентом на реализацию, результат и влияние на командную
-      скорость.
+      Case studies focused on implementation, outcomes, and team impact.
     </p>
   </section>
 
@@ -27,7 +26,8 @@ const sortedProjects = projects.sort((a, b) =>
         <h2>{project.data.title}</h2>
         <p>{project.data.summary}</p>
         <p>
-          <strong>Роль:</strong> {project.data.role} · <strong>Период:</strong>{" "}
+          <strong data-i18n="projects.label.role">Role:</strong> {project.data.role} ·{" "}
+          <strong data-i18n="projects.label.period">Period:</strong>{" "}
           {project.data.period}
         </p>
         <ul>
