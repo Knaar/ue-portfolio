@@ -30,17 +30,178 @@ const baseUrl = import.meta.env.BASE_URL;
     <header class="site-header">
       <a class="brand" href={`${baseUrl}#home`}>UE Portfolio</a>
       <nav>
-        <a href={`${baseUrl}#home`}>Главная</a>
-        <a href={`${baseUrl}#experience`}>Опыт</a>
-        <a href={`${baseUrl}#projects`}>Проекты</a>
-        <a href={`${baseUrl}#about`}>Обо мне</a>
+        <a href={`${baseUrl}#home`} data-i18n="nav.home">Главная</a>
+        <a href={`${baseUrl}#experience`} data-i18n="nav.experience">Опыт</a>
+        <a href={`${baseUrl}#projects`} data-i18n="nav.projects">Проекты</a>
+        <a href={`${baseUrl}#about`} data-i18n="nav.about">Обо мне</a>
       </nav>
+      <div class="lang-switch">
+        <select id="lang-select" class="lang-select" aria-label="Language selector">
+          <option value="ru">RU</option>
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+        </select>
+      </div>
     </header>
     <main class="container">
       <slot />
     </main>
     <footer class="site-footer">
-      <p>© {new Date().getFullYear()} UE Programmer Portfolio</p>
+      <p data-i18n="footer.copy">© {new Date().getFullYear()} UE Programmer Portfolio</p>
     </footer>
+    <script>
+      const dict = {
+        ru: {
+          "nav.home": "Главная",
+          "nav.experience": "Опыт",
+          "nav.projects": "Проекты",
+          "nav.about": "Обо мне",
+          "home.cta.experience": "Смотреть опыт",
+          "home.cta.about": "Подробнее обо мне",
+          "home.experience.title": "Опыт работы",
+          "home.experience.more": "Открыть полный таймлайн",
+          "home.projects.title": "Проекты",
+          "home.projects.more": "Открыть все проекты",
+          "home.about.title": "Обо мне",
+          "home.about.more": "Открыть расширенную версию",
+          "home.contacts.title": "Контакты",
+          "home.focus.title": "Фокус",
+          "home.skills.title": "Ключевые навыки",
+          "about.title": "Обо мне",
+          "about.subtitle":
+            "Senior/Lead UE C++ разработчик с фокусом на VR и multiplayer. Люблю системные задачи, где важны надежность, прозрачная архитектура и быстрый цикл доставки фич.",
+          "about.values.title": "Что для меня важно в работе",
+          "about.values.1": "Сначала стабильный технический фундамент, затем быстрый рост контента.",
+          "about.values.2": "Прозрачная коммуникация между кодом, артом, техартом и геймдизайном.",
+          "about.values.3": "Решения, которые помогают бизнесу, а не только красивый код.",
+          "about.values.4": "Четкий ownership: если фича моя, довожу до продакшена и поддержки.",
+          "about.contacts.title": "Контакты",
+          "about.exp.link": "Опыт: подробный таймлайн",
+          "about.help.title": "Чем могу быть полезен команде",
+          "about.help.1": "Лидство и фичмейкерство на действующем продукте с реальными пользователями.",
+          "about.help.2": "Сетевые и VR-системы: от архитектуры до производительности и UX.",
+          "about.help.3": "Опыт backend/frontend мышления, что помогает в системных интеграциях.",
+          "about.help.4": "Сильная прикладная экспертиза по release-процессу и качеству сборок.",
+          "projects.title": "Проекты",
+          "projects.subtitle": "Раздел в процессе наполнения. Скоро здесь будут отдельные детальные кейсы.",
+          "projects.ready.title": "Что уже можно посмотреть",
+          "projects.ready.1": "Опыт работы — основные роли и вклад.",
+          "projects.ready.2": "Главная — результаты, стек и ключевые системы.",
+          "projects.ready.3": "По запросу могу предоставить дополнительные материалы и демо.",
+          "experience.title": "Опыт работы",
+          "experience.subtitle": "Роли, ответственность и продуктовый вклад по основным этапам карьеры.",
+          "footer.copy": `© ${new Date().getFullYear()} UE Programmer Portfolio`
+        },
+        en: {
+          "nav.home": "Home",
+          "nav.experience": "Experience",
+          "nav.projects": "Projects",
+          "nav.about": "About",
+          "home.cta.experience": "View Experience",
+          "home.cta.about": "About Me",
+          "home.experience.title": "Work Experience",
+          "home.experience.more": "Open Full Timeline",
+          "home.projects.title": "Projects",
+          "home.projects.more": "Open All Projects",
+          "home.about.title": "About",
+          "home.about.more": "Open Full Version",
+          "home.contacts.title": "Contacts",
+          "home.focus.title": "Focus",
+          "home.skills.title": "Core Skills",
+          "about.title": "About",
+          "about.subtitle":
+            "Senior/Lead UE C++ developer focused on VR and multiplayer. I prefer system-level challenges where reliability, clear architecture and fast feature delivery matter.",
+          "about.values.title": "What matters to me at work",
+          "about.values.1": "Build a stable technical core first, then scale content fast.",
+          "about.values.2": "Transparent communication across code, art, tech art and game design.",
+          "about.values.3": "Solutions that improve business outcomes, not only elegant code.",
+          "about.values.4": "Clear ownership: if a feature is mine, I ship and support it.",
+          "about.contacts.title": "Contacts",
+          "about.exp.link": "Experience: full timeline",
+          "about.help.title": "How I help teams",
+          "about.help.1": "Lead and feature ownership on a live product with real users.",
+          "about.help.2": "Network and VR systems from architecture to performance and UX.",
+          "about.help.3": "Backend/frontend mindset for stronger system integrations.",
+          "about.help.4": "Hands-on release quality and delivery process expertise.",
+          "projects.title": "Projects",
+          "projects.subtitle": "This section is being filled. Detailed case studies are coming soon.",
+          "projects.ready.title": "What you can view now",
+          "projects.ready.1": "Experience - key roles and contribution.",
+          "projects.ready.2": "Home - outcomes, stack and core systems.",
+          "projects.ready.3": "Additional materials and demos are available on request.",
+          "experience.title": "Work Experience",
+          "experience.subtitle": "Roles, ownership and product impact across key career stages.",
+          "footer.copy": `© ${new Date().getFullYear()} UE Programmer Portfolio`
+        },
+        es: {
+          "nav.home": "Inicio",
+          "nav.experience": "Experiencia",
+          "nav.projects": "Proyectos",
+          "nav.about": "Sobre mi",
+          "home.cta.experience": "Ver experiencia",
+          "home.cta.about": "Sobre mi",
+          "home.experience.title": "Experiencia laboral",
+          "home.experience.more": "Abrir linea de tiempo completa",
+          "home.projects.title": "Proyectos",
+          "home.projects.more": "Abrir todos los proyectos",
+          "home.about.title": "Sobre mi",
+          "home.about.more": "Abrir version completa",
+          "home.contacts.title": "Contactos",
+          "home.focus.title": "Enfoque",
+          "home.skills.title": "Habilidades clave",
+          "about.title": "Sobre mi",
+          "about.subtitle":
+            "Desarrollador Senior/Lead UE C++ con foco en VR y multijugador. Me gustan los retos de sistemas donde importan fiabilidad, arquitectura clara y entrega rapida.",
+          "about.values.title": "Lo que valoro en el trabajo",
+          "about.values.1": "Primero un nucleo tecnico estable, luego escalar contenido.",
+          "about.values.2": "Comunicacion transparente entre codigo, arte, tech art y diseno.",
+          "about.values.3": "Soluciones que ayudan al negocio, no solo codigo bonito.",
+          "about.values.4": "Ownership claro: si una feature es mia, la llevo a produccion y soporte.",
+          "about.contacts.title": "Contactos",
+          "about.exp.link": "Experiencia: linea de tiempo completa",
+          "about.help.title": "Como ayudo al equipo",
+          "about.help.1": "Liderazgo y ownership de features en producto en vivo.",
+          "about.help.2": "Sistemas de red y VR: de arquitectura a rendimiento y UX.",
+          "about.help.3": "Mentalidad backend/frontend para integraciones mas solidas.",
+          "about.help.4": "Experiencia practica en calidad de releases y delivery.",
+          "projects.title": "Proyectos",
+          "projects.subtitle": "Esta seccion se esta completando. Pronto habra casos detallados.",
+          "projects.ready.title": "Que puedes ver ahora",
+          "projects.ready.1": "Experiencia - roles clave y contribucion.",
+          "projects.ready.2": "Inicio - resultados, stack y sistemas base.",
+          "projects.ready.3": "Materiales y demos adicionales disponibles bajo solicitud.",
+          "experience.title": "Experiencia laboral",
+          "experience.subtitle": "Roles, responsabilidad e impacto de producto en etapas clave.",
+          "footer.copy": `© ${new Date().getFullYear()} UE Programmer Portfolio`
+        }
+      };
+
+      const savedLang = localStorage.getItem("site-lang") || "en";
+      const applyLang = (lang) => {
+        const table = dict[lang] ?? dict.en;
+        document.documentElement.lang = lang;
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (key && table[key]) {
+            el.textContent = table[key];
+          }
+        });
+        const select = document.getElementById("lang-select");
+        if (select instanceof HTMLSelectElement) {
+          select.value = lang;
+        }
+        localStorage.setItem("site-lang", lang);
+      };
+
+      const select = document.getElementById("lang-select");
+      if (select instanceof HTMLSelectElement) {
+        select.addEventListener("change", () => {
+          const lang = select.value || "en";
+          applyLang(lang);
+        });
+      }
+
+      applyLang(savedLang);
+    </script>
   </body>
 </html>

@@ -42,19 +42,29 @@ const contacts = [
   title={`${profile.data.name} | UE Programmer Portfolio`}
   description="Портфолио UE программиста: проекты, подход к разработке и контакты."
 >
-  <section class="hero" id="home">
-    <h1>{profile.data.name}</h1>
-    <p>{profile.data.title}</p>
+  <section class="hero hero-grid" id="home">
     <div>
-      <a href="#experience">Смотреть опыт</a>
-      <span> · </span>
-      <a href="#about">Подробнее обо мне</a>
+      <h1>{profile.data.name}</h1>
+      <p>{profile.data.title}</p>
+      <div>
+        <a href="#experience" data-i18n="home.cta.experience">Смотреть опыт</a>
+        <span> · </span>
+        <a href="#about" data-i18n="home.cta.about">Подробнее обо мне</a>
+      </div>
+    </div>
+    <div class="avatar-wrap">
+      <img
+        class="avatar"
+        src={`${baseUrl}images/profile.png`}
+        alt="Фото: Антон Бордунос"
+        loading="lazy"
+      />
     </div>
   </section>
 
   <section class="grid-2">
     <article class="card">
-      <h2>Фокус</h2>
+      <h2 data-i18n="home.focus.title">Фокус</h2>
       <ul class="tag-list">
         {profile.data.focus.map((item) => (
           <li class="tag">{item}</li>
@@ -62,7 +72,7 @@ const contacts = [
       </ul>
     </article>
     <article class="card">
-      <h2>Ключевые навыки</h2>
+      <h2 data-i18n="home.skills.title">Ключевые навыки</h2>
       <ul class="tag-list">
         {profile.data.skills.map((skill) => (
           <li class="tag">{skill}</li>
@@ -72,7 +82,7 @@ const contacts = [
   </section>
 
   <section id="experience">
-    <h2>Опыт работы</h2>
+    <h2 data-i18n="home.experience.title">Опыт работы</h2>
     <div class="cards">
       {experience.map((item) => (
         <article class="card">
@@ -85,12 +95,12 @@ const contacts = [
       ))}
     </div>
     <p>
-      <a href={`${baseUrl}experience/`}>Открыть полный таймлайн</a>
+      <a href={`${baseUrl}experience/`} data-i18n="home.experience.more">Открыть полный таймлайн</a>
     </p>
   </section>
 
   <section id="projects">
-    <h2>Проекты</h2>
+    <h2 data-i18n="home.projects.title">Проекты</h2>
     <div class="cards">
       {projects.map((project) => (
         <article class="card">
@@ -104,20 +114,20 @@ const contacts = [
       ))}
     </div>
     <p>
-      <a href={`${baseUrl}projects/`}>Открыть все проекты</a>
+      <a href={`${baseUrl}projects/`} data-i18n="home.projects.more">Открыть все проекты</a>
     </p>
   </section>
 
   <section class="grid-2" id="about">
     <article class="card">
-      <h2>Обо мне</h2>
+      <h2 data-i18n="home.about.title">Обо мне</h2>
       <Content />
       <p>
-        <a href={`${baseUrl}about/`}>Открыть расширенную версию</a>
+        <a href={`${baseUrl}about/`} data-i18n="home.about.more">Открыть расширенную версию</a>
       </p>
     </article>
     <article class="card">
-      <h2>Контакты</h2>
+      <h2 data-i18n="home.contacts.title">Контакты</h2>
       <ul>
         {contacts.map((contact) => (
           <li>
