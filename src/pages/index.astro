@@ -1,10 +1,33 @@
 ---
-import { getEntry, render } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const profile = await getEntry("profile", "profile");
 const { Content } = await render(profile);
+const projects = (await getCollection("projects"))
+  .sort((a, b) => b.data.period.localeCompare(a.data.period))
+  .slice(0, 3);
 const baseUrl = import.meta.env.BASE_URL;
+const experience = [
+  {
+    period: "2024 - настоящее время",
+    role: "Senior / Lead Unreal Engine C++ Developer (VR / Multiplayer)",
+    details:
+      "Бизнес-критичные gameplay и сетевые подсистемы: стрельба, гранаты, урон, UI/HUD, spectator UI и серверная логика."
+  },
+  {
+    period: "2023 - 2024",
+    role: "UE Developer / Feature Owner",
+    details:
+      "Core-механики, сетевые взаимодействия, оптимизация производительности и backend-интеграции (JSON/REST)."
+  },
+  {
+    period: "2020 - 2023",
+    role: "Frontend / Backend Freelancer",
+    details:
+      "Frontend-разработка сайтов, backend-задачи и Python-автоматизация для прикладных сценариев."
+  }
+];
 
 const contacts = [
   { label: "Email", url: `mailto:${profile.data.email}` },
@@ -19,128 +42,89 @@ const contacts = [
   title={`${profile.data.name} | UE Programmer Portfolio`}
   description="Портфолио UE программиста: проекты, подход к разработке и контакты."
 >
-  <section class="hero hero-grid">
+  <section class="hero" id="home">
+    <h1>{profile.data.name}</h1>
+    <p>{profile.data.title}</p>
     <div>
-      <h1>{profile.data.name}</h1>
-      <p>{profile.data.title}</p>
-      <div>
-        <a href={`${baseUrl}experience/`} data-i18n="home.cta.experience">Смотреть опыт</a>
-        <span> · </span>
-        <a href={`${baseUrl}about/`} data-i18n="home.cta.about">Подробнее обо мне</a>
-      </div>
-    </div>
-    <div class="avatar-wrap">
-      <img
-        class="avatar"
-        src={`${baseUrl}images/profile.png`}
-        alt="Фото: Антон Бордунос"
-        loading="lazy"
-      />
+      <a href="#experience">Смотреть опыт</a>
+      <span> · </span>
+      <a href="#about">Подробнее обо мне</a>
     </div>
   </section>
 
-  <section class="card">
-    <h2 data-i18n="home.results.title">Коротко о результатах</h2>
-    <ul>
-      <li data-i18n="home.results.1">
-        Выпустил 7 игровых продуктов на едином VR-core (один каркас, разные режимы и
-        игровые оболочки).
-      </li>
-      <li data-i18n="home.results.2">
-        Участвовал в масштабировании разработки с 3 до 20+ человек в штате.
-      </li>
-      <li data-i18n="home.results.3">
-        Отвечаю за бизнес-критичные фичи: стрельба, гранаты, урон, взаимодействия,
-        серверная логика, UI/HUD и spectator UI.
-      </li>
-      <li data-i18n="home.results.4">
-        В стандартных VR-сессиях 10+ игроков держим целевые 72 FPS на Pico; тяжелые
-        FX/UI-сцены системно дооптимизируем с техартом.
-      </li>
-    </ul>
+  <section class="grid-2">
+    <article class="card">
+      <h2>Фокус</h2>
+      <ul class="tag-list">
+        {profile.data.focus.map((item) => (
+          <li class="tag">{item}</li>
+        ))}
+      </ul>
+    </article>
+    <article class="card">
+      <h2>Ключевые навыки</h2>
+      <ul class="tag-list">
+        {profile.data.skills.map((skill) => (
+          <li class="tag">{skill}</li>
+        ))}
+      </ul>
+    </article>
   </section>
 
-  <section class="card">
-    <h2 data-i18n="home.stack.title">Tech Stack in Production</h2>
-    <div class="stack-grid">
-      <article class="stack-block">
-        <h3 data-i18n="home.stack.engine">Engine & Code</h3>
-        <ul class="tag-list">
-          <li class="tag">UE4/UE5</li>
-          <li class="tag">C++</li>
-          <li class="tag">Blueprints</li>
-          <li class="tag">Subsystems</li>
-          <li class="tag">Plugin Integration</li>
-        </ul>
-      </article>
-      <article class="stack-block">
-        <h3 data-i18n="home.stack.network">Network & Multiplayer</h3>
-        <ul class="tag-list">
-          <li class="tag">Replication</li>
-          <li class="tag">Dedicated Server</li>
-          <li class="tag">Backend Integration</li>
-          <li class="tag">JSON/Proto Flows</li>
-          <li class="tag">Advanced Sessions</li>
-          <li class="tag">Spectator UI</li>
-          <li class="tag">Scenario/Wave Systems</li>
-        </ul>
-      </article>
-      <article class="stack-block">
-        <h3 data-i18n="home.stack.vr">VR & Performance</h3>
-        <ul class="tag-list">
-          <li class="tag">Oculus / Pico</li>
-          <li class="tag">72 FPS Target</li>
-          <li class="tag">Unreal Insights</li>
-          <li class="tag">CPU/GPU Profiling</li>
-          <li class="tag">Pooling Systems</li>
-        </ul>
-      </article>
-      <article class="stack-block">
-        <h3 data-i18n="home.stack.gameplay">Gameplay & UX</h3>
-        <ul class="tag-list">
-          <li class="tag">Weapons Systems</li>
-          <li class="tag">Damage & Interaction</li>
-          <li class="tag">Geometry Collection</li>
-          <li class="tag">Niagara</li>
-          <li class="tag">UMG / Admin UI</li>
-        </ul>
-      </article>
-      <article class="stack-block">
-        <h3 data-i18n="home.stack.process">Process & Delivery</h3>
-        <ul class="tag-list">
-          <li class="tag">Git / GitHub</li>
-          <li class="tag">Release Management</li>
-          <li class="tag">Cross-team Coordination</li>
-          <li class="tag">Knowledge Base</li>
-          <li class="tag">Feature Ownership</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="card">
-    <h2 data-i18n="home.experience.title">Опыт работы</h2>
-    <p data-i18n="home.experience.short">
-      Весь опыт и подробный таймлайн вынесены в отдельный раздел.
-    </p>
-    <p>
-      <a href={`${baseUrl}experience/`} data-i18n="home.experience.more">Открыть полный опыт</a>
-    </p>
-  </section>
-
-  <section class="card">
-    <h2 data-i18n="home.contacts.title">Контакты</h2>
-    <ul>
-      {contacts.map((contact) => (
-        <li>
-          <a href={contact.url}>{contact.label}</a>
-        </li>
+  <section id="experience">
+    <h2>Опыт работы</h2>
+    <div class="cards">
+      {experience.map((item) => (
+        <article class="card">
+          <p>
+            <strong>{item.period}</strong>
+          </p>
+          <h3>{item.role}</h3>
+          <p>{item.details}</p>
+        </article>
       ))}
-    </ul>
+    </div>
+    <p>
+      <a href={`${baseUrl}experience/`}>Открыть полный таймлайн</a>
+    </p>
   </section>
 
-  <section class="card">
-    <h2 data-i18n="home.about.title">Обо мне</h2>
-    <Content />
+  <section id="projects">
+    <h2>Проекты</h2>
+    <div class="cards">
+      {projects.map((project) => (
+        <article class="card">
+          <h3>{project.data.title}</h3>
+          <p>{project.data.summary}</p>
+          <p>
+            <strong>Роль:</strong> {project.data.role} · <strong>Период:</strong>{" "}
+            {project.data.period}
+          </p>
+        </article>
+      ))}
+    </div>
+    <p>
+      <a href={`${baseUrl}projects/`}>Открыть все проекты</a>
+    </p>
+  </section>
+
+  <section class="grid-2" id="about">
+    <article class="card">
+      <h2>Обо мне</h2>
+      <Content />
+      <p>
+        <a href={`${baseUrl}about/`}>Открыть расширенную версию</a>
+      </p>
+    </article>
+    <article class="card">
+      <h2>Контакты</h2>
+      <ul>
+        {contacts.map((contact) => (
+          <li>
+            <a href={contact.url}>{contact.label}</a>
+          </li>
+        ))}
+      </ul>
+    </article>
   </section>
 </BaseLayout>

@@ -1,36 +1,37 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const profile = await getEntry("profile", "profile");
+const { Content } = await render(profile);
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
   title="Обо мне | UE Programmer Portfolio"
-  description="Кто я, как работаю и что важно для меня как для UE разработчика."
+  description="Опыт, подход к разработке и контакты UE программиста."
 >
   <section class="hero">
-    <h1 data-i18n="about.title">Обо мне</h1>
-    <p data-i18n="about.subtitle">
-      Senior/Lead UE C++ разработчик с фокусом на VR и multiplayer. Люблю системные
-      задачи, где важны надежность, прозрачная архитектура и быстрый цикл доставки фич.
+    <h1>Обо мне</h1>
+    <p>
+      Senior/Lead UE C++ разработчик с фокусом на VR и multiplayer. Беру задачи на
+      стыке gameplay, network, backend-интеграций и production-качества.
     </p>
   </section>
 
   <section class="grid-2">
     <article class="card">
-      <h2 data-i18n="about.values.title">Что для меня важно в работе</h2>
+      <h2>Что важно в работе</h2>
       <ul>
-        <li data-i18n="about.values.1">Сначала стабильный технический фундамент, затем быстрый рост контента.</li>
-        <li data-i18n="about.values.2">Прозрачная коммуникация между кодом, артом, техартом и геймдизайном.</li>
-        <li data-i18n="about.values.3">Решения, которые помогают бизнесу, а не только красивый код.</li>
-        <li data-i18n="about.values.4">Четкий ownership: если фича моя, довожу до продакшена и поддержки.</li>
+        <li>Стабильный технический фундамент до масштабирования контента.</li>
+        <li>Прозрачная коммуникация с артом, техартом, QA и дизайном.</li>
+        <li>Проверяемый результат для продукта, а не только «красивый код».</li>
+        <li>Ownership фичи до релиза и в post-release поддержке.</li>
       </ul>
     </article>
 
     <article class="card">
-      <h2 data-i18n="about.contacts.title">Контакты</h2>
+      <h2>Контакты</h2>
       <ul>
         <li>
           Email: <a href={`mailto:${profile.data.email}`}>{profile.data.email}</a>
@@ -46,19 +47,14 @@ const baseUrl = import.meta.env.BASE_URL;
           </li>
         )}
         <li>
-          <a href={`${baseUrl}experience/`} data-i18n="about.exp.link">Опыт: подробный таймлайн</a>
+          Опыт: <a href={`${baseUrl}experience/`}>подробный таймлайн</a>
         </li>
       </ul>
     </article>
   </section>
 
   <section class="card">
-    <h2 data-i18n="about.help.title">Чем могу быть полезен команде</h2>
-    <ul>
-      <li data-i18n="about.help.1">Лидство и фичмейкерство на действующем продукте с реальными пользователями.</li>
-      <li data-i18n="about.help.2">Сетевые и VR-системы: от архитектуры до производительности и UX.</li>
-      <li data-i18n="about.help.3">Опыт backend/frontend мышления, что помогает в системных интеграциях.</li>
-      <li data-i18n="about.help.4">Сильная прикладная экспертиза по release-процессу и качеству сборок.</li>
-    </ul>
+    <h2>Профессиональный подход</h2>
+    <Content />
   </section>
 </BaseLayout>
