@@ -1,0 +1,44 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl.toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={canonicalUrl.toString()} />
+    <link rel="icon" type="image/svg+xml" href={`${Astro.base}favicon.svg`} />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href={`${Astro.base}`}>UE Portfolio</a>
+      <nav>
+        <a href={`${Astro.base}`}>Главная</a>
+        <a href={`${Astro.base}projects/`}>Проекты</a>
+        <a href={`${Astro.base}about/`}>Обо мне</a>
+      </nav>
+    </header>
+    <main class="container">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>© {new Date().getFullYear()} UE Programmer Portfolio</p>
+    </footer>
+  </body>
+</html>

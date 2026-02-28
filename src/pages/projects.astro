@@ -1,0 +1,51 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const projects = await getCollection("projects");
+const sortedProjects = projects.sort((a, b) =>
+  b.data.period.localeCompare(a.data.period)
+);
+---
+
+<BaseLayout
+  title="Проекты | UE Programmer Portfolio"
+  description="Кейсы по геймплейным, сетевым и тулзовым системам в Unreal Engine."
+>
+  <section class="hero">
+    <span class="badge">Project Cases</span>
+    <h1>Проекты</h1>
+    <p>
+      Подборка кейсов с акцентом на реализацию, результат и влияние на командную
+      скорость.
+    </p>
+  </section>
+
+  <section class="cards">
+    {sortedProjects.map((project) => (
+      <article class="card">
+        <h2>{project.data.title}</h2>
+        <p>{project.data.summary}</p>
+        <p>
+          <strong>Роль:</strong> {project.data.role} · <strong>Период:</strong>{" "}
+          {project.data.period}
+        </p>
+        <ul>
+          {project.data.highlights.map((highlight) => (
+            <li>{highlight}</li>
+          ))}
+        </ul>
+        {project.data.links.length > 0 && (
+          <p>
+            {project.data.links.map((link, index) => (
+              <>
+                {index > 0 && <span> · </span>}
+                <a href={link.url}>{link.label}</a>
+              </>
+            ))}
+          </p>
+        )}
+      </article>
+    ))}
+  </section>
+</BaseLayout>

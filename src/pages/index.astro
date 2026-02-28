@@ -1,0 +1,83 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const profile = await getEntry("profile", "profile");
+const projects = (await getCollection("projects")).slice(0, 3);
+const { Content } = await render(profile);
+
+const contacts = [
+  { label: "Email", url: `mailto:${profile.data.email}` },
+  { label: "Telegram", url: profile.data.telegram },
+  { label: "GitHub", url: profile.data.github },
+  { label: "LinkedIn", url: profile.data.linkedin },
+  { label: "ArtStation", url: profile.data.artstation }
+].filter((item) => item.url);
+---
+
+<BaseLayout
+  title={`${profile.data.name} | UE Programmer Portfolio`}
+  description="Портфолио UE программиста: проекты, подход к разработке и контакты."
+>
+  <section class="hero">
+    <span class="badge">{profile.data.location}</span>
+    <h1>{profile.data.name}</h1>
+    <p>{profile.data.title}</p>
+    <div>
+      <a href={`${Astro.base}projects/`}>Смотреть проекты</a>
+      <span> · </span>
+      <a href={`${Astro.base}about/`}>Подробнее обо мне</a>
+    </div>
+  </section>
+
+  <section class="grid-2">
+    <article class="card">
+      <h2>Фокус</h2>
+      <ul class="tag-list">
+        {profile.data.focus.map((item) => (
+          <li class="tag">{item}</li>
+        ))}
+      </ul>
+    </article>
+    <article class="card">
+      <h2>Ключевые навыки</h2>
+      <ul class="tag-list">
+        {profile.data.skills.map((skill) => (
+          <li class="tag">{skill}</li>
+        ))}
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Избранные проекты</h2>
+    <div class="cards">
+      {projects.map((project) => (
+        <article class="card">
+          <h3>{project.data.title}</h3>
+          <p>{project.data.summary}</p>
+          <p>
+            <strong>Роль:</strong> {project.data.role} · <strong>Период:</strong>{" "}
+            {project.data.period}
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Контакты</h2>
+    <ul>
+      {contacts.map((contact) => (
+        <li>
+          <a href={contact.url}>{contact.label}</a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Как я работаю</h2>
+    <Content />
+  </section>
+</BaseLayout>

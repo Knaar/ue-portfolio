@@ -1,0 +1,85 @@
+---
+import { getEntry, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const profile = await getEntry("profile", "profile");
+const { Content } = await render(profile);
+
+const experience = [
+  {
+    period: "2024 - 2026",
+    role: "Senior UE Gameplay Programmer",
+    details: "Gameplay systems, combat features, менторинг мидл-разработчиков."
+  },
+  {
+    period: "2022 - 2024",
+    role: "UE Network Programmer",
+    details: "Replication, prediction и инструменты тестирования сетевой стабильности."
+  },
+  {
+    period: "2020 - 2022",
+    role: "UE Developer",
+    details: "Системы персонажей, AI behavior, оптимизация CPU/GPU узких мест."
+  }
+];
+---
+
+<BaseLayout
+  title="Обо мне | UE Programmer Portfolio"
+  description="Опыт, подход к разработке и контакты UE программиста."
+>
+  <section class="hero">
+    <span class="badge">About</span>
+    <h1>Обо мне</h1>
+    <p>
+      Работаю на стыке gameplay, network и технических инструментов, чтобы ускорять
+      команду и повышать качество фич.
+    </p>
+  </section>
+
+  <section class="grid-2">
+    <article class="card">
+      <h2>Опыт</h2>
+      <div class="cards">
+        {experience.map((item) => (
+          <article>
+            <p>
+              <strong>{item.period}</strong>
+            </p>
+            <p>{item.role}</p>
+            <p>{item.details}</p>
+          </article>
+        ))}
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Контакты</h2>
+      <ul>
+        <li>
+          Email: <a href={`mailto:${profile.data.email}`}>{profile.data.email}</a>
+        </li>
+        {profile.data.telegram && (
+          <li>
+            Telegram: <a href={profile.data.telegram}>{profile.data.telegram}</a>
+          </li>
+        )}
+        {profile.data.github && (
+          <li>
+            GitHub: <a href={profile.data.github}>{profile.data.github}</a>
+          </li>
+        )}
+        {profile.data.linkedin && (
+          <li>
+            LinkedIn: <a href={profile.data.linkedin}>{profile.data.linkedin}</a>
+          </li>
+        )}
+      </ul>
+    </article>
+  </section>
+
+  <section class="card">
+    <h2>Подход</h2>
+    <Content />
+  </section>
+</BaseLayout>
