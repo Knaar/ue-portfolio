@@ -130,6 +130,24 @@ a:hover {
   font-size: 0.85rem;
 }
 
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.stack-block {
+  padding: 0.95rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--bg-soft) 86%, black 14%);
+}
+
+.stack-block h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+}
+
 .site-footer {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -145,6 +163,10 @@ a:hover {
   }
 
   .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .stack-grid {
     grid-template-columns: 1fr;
   }
 
