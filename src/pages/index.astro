@@ -7,6 +7,7 @@ const projects = (await getCollection("projects"))
   .sort((a, b) => b.data.period.localeCompare(a.data.period))
   .slice(0, 3);
 const { Content } = await render(profile);
+const baseUrl = import.meta.env.BASE_URL;
 
 const contacts = [
   { label: "Email", url: `mailto:${profile.data.email}` },
@@ -27,15 +28,15 @@ const contacts = [
       <h1>{profile.data.name}</h1>
       <p>{profile.data.title}</p>
       <div>
-        <a href={`${Astro.base}experience/`} data-i18n="home.cta.experience">Смотреть опыт</a>
+        <a href={`${baseUrl}experience/`} data-i18n="home.cta.experience">Смотреть опыт</a>
         <span> · </span>
-        <a href={`${Astro.base}about/`} data-i18n="home.cta.about">Подробнее обо мне</a>
+        <a href={`${baseUrl}about/`} data-i18n="home.cta.about">Подробнее обо мне</a>
       </div>
     </div>
     <div class="avatar-wrap">
       <img
         class="avatar"
-        src={`${Astro.base}images/profile.png`}
+        src={`${baseUrl}images/profile.png`}
         alt="Фото: Антон Бардунас"
         loading="lazy"
       />
@@ -136,7 +137,7 @@ const contacts = [
       ))}
     </div>
     <p>
-      <a href={`${Astro.base}experience/`} data-i18n="home.experience.more">Открыть полный опыт</a>
+      <a href={`${baseUrl}experience/`} data-i18n="home.experience.more">Открыть полный опыт</a>
     </p>
   </section>
 

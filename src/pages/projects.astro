@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
@@ -16,10 +17,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <h2>Что уже можно посмотреть</h2>
     <ul>
       <li>
-        <a href={`${Astro.base}experience/`}>Опыт работы</a> — основные роли и вклад.
+        <a href={`${baseUrl}experience/`}>Опыт работы</a> — основные роли и вклад.
       </li>
       <li>
-        <a href={`${Astro.base}`}>Главная</a> — результаты, стек и ключевые системы.
+        <a href={`${baseUrl}`}>Главная</a> — результаты, стек и ключевые системы.
       </li>
       <li>
         По запросу могу предоставить дополнительные материалы и демо.
