@@ -1,5 +1,5 @@
 ---
-name: "Антон Бардунас"
+name: "Антон Бордунос"
 title: "Senior / Lead Unreal Engine C++ Developer (VR / Multiplayer)"
 location: "Europe / Worldwide"
 email: "mr.bordunos@mail.ru"

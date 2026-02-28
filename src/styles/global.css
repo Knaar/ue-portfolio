@@ -56,22 +56,18 @@ a:hover {
 
 .lang-switch {
   display: flex;
-  gap: 0.35rem;
+  gap: 0.25rem;
 }
 
-.lang-btn {
+.lang-select {
   border: 1px solid var(--border);
   background: var(--bg-soft);
-  color: var(--text-soft);
+  color: var(--text);
   border-radius: 8px;
   font-size: 0.8rem;
   padding: 0.25rem 0.55rem;
   cursor: pointer;
-}
-
-.lang-btn.active {
-  color: var(--text);
-  border-color: #5378b8;
+  min-width: 70px;
 }
 
 .container {

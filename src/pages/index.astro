@@ -37,7 +37,7 @@ const contacts = [
       <img
         class="avatar"
         src={`${baseUrl}images/profile.png`}
-        alt="Фото: Антон Бардунас"
+        alt="Фото: Антон Бордунос"
         loading="lazy"
       />
     </div>
@@ -46,18 +46,18 @@ const contacts = [
   <section class="card">
     <h2 data-i18n="home.results.title">Коротко о результатах</h2>
     <ul>
-      <li>
+      <li data-i18n="home.results.1">
         Выпустил 7 игровых продуктов на едином VR-core (один каркас, разные режимы и
         игровые оболочки).
       </li>
-      <li>
+      <li data-i18n="home.results.2">
         Участвовал в масштабировании разработки с 3 до 20+ человек в штате.
       </li>
-      <li>
+      <li data-i18n="home.results.3">
         Отвечаю за бизнес-критичные фичи: стрельба, гранаты, урон, взаимодействия,
         серверная логика, UI/HUD и spectator UI.
       </li>
-      <li>
+      <li data-i18n="home.results.4">
         В стандартных VR-сессиях 10+ игроков держим целевые 72 FPS на Pico; тяжелые
         FX/UI-сцены системно дооптимизируем с техартом.
       </li>
@@ -65,10 +65,10 @@ const contacts = [
   </section>
 
   <section class="card">
-    <h2>Tech Stack in Production</h2>
+    <h2 data-i18n="home.stack.title">Tech Stack in Production</h2>
     <div class="stack-grid">
       <article class="stack-block">
-        <h3>Engine & Code</h3>
+        <h3 data-i18n="home.stack.engine">Engine & Code</h3>
         <ul class="tag-list">
           <li class="tag">UE4/UE5</li>
           <li class="tag">C++</li>
@@ -78,7 +78,7 @@ const contacts = [
         </ul>
       </article>
       <article class="stack-block">
-        <h3>Network & Multiplayer</h3>
+        <h3 data-i18n="home.stack.network">Network & Multiplayer</h3>
         <ul class="tag-list">
           <li class="tag">Replication</li>
           <li class="tag">Dedicated Server</li>
@@ -90,7 +90,7 @@ const contacts = [
         </ul>
       </article>
       <article class="stack-block">
-        <h3>VR & Performance</h3>
+        <h3 data-i18n="home.stack.vr">VR & Performance</h3>
         <ul class="tag-list">
           <li class="tag">Oculus / Pico</li>
           <li class="tag">72 FPS Target</li>
@@ -100,7 +100,7 @@ const contacts = [
         </ul>
       </article>
       <article class="stack-block">
-        <h3>Gameplay & UX</h3>
+        <h3 data-i18n="home.stack.gameplay">Gameplay & UX</h3>
         <ul class="tag-list">
           <li class="tag">Weapons Systems</li>
           <li class="tag">Damage & Interaction</li>
@@ -110,7 +110,7 @@ const contacts = [
         </ul>
       </article>
       <article class="stack-block">
-        <h3>Process & Delivery</h3>
+        <h3 data-i18n="home.stack.process">Process & Delivery</h3>
         <ul class="tag-list">
           <li class="tag">Git / GitHub</li>
           <li class="tag">Release Management</li>
@@ -142,7 +142,7 @@ const contacts = [
   </section>
 
   <section class="card">
-    <h2>Контакты</h2>
+    <h2 data-i18n="home.contacts.title">Контакты</h2>
     <ul>
       {contacts.map((contact) => (
         <li>

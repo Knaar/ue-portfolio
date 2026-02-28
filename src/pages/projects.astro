@@ -8,23 +8,21 @@ const baseUrl = import.meta.env.BASE_URL;
   description="Раздел проектов будет пополняться отдельными кейсами."
 >
   <section class="hero">
-    <span class="badge">Projects</span>
-    <h1>Проекты</h1>
-    <p>Раздел в процессе наполнения. Скоро здесь будут отдельные детальные кейсы.</p>
+    <span class="badge" data-i18n="projects.badge">Projects</span>
+    <h1 data-i18n="projects.title">Проекты</h1>
+    <p data-i18n="projects.subtitle">Раздел в процессе наполнения. Скоро здесь будут отдельные детальные кейсы.</p>
   </section>
 
   <section class="card">
-    <h2>Что уже можно посмотреть</h2>
+    <h2 data-i18n="projects.ready.title">Что уже можно посмотреть</h2>
     <ul>
       <li>
-        <a href={`${baseUrl}experience/`}>Опыт работы</a> — основные роли и вклад.
+        <a href={`${baseUrl}experience/`} data-i18n="projects.ready.1">Опыт работы — основные роли и вклад.</a>
       </li>
       <li>
-        <a href={`${baseUrl}`}>Главная</a> — результаты, стек и ключевые системы.
+        <a href={`${baseUrl}`} data-i18n="projects.ready.2">Главная — результаты, стек и ключевые системы.</a>
       </li>
-      <li>
-        По запросу могу предоставить дополнительные материалы и демо.
-      </li>
+      <li data-i18n="projects.ready.3">По запросу могу предоставить дополнительные материалы и демо.</li>
     </ul>
   </section>
 </BaseLayout>

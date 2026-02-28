@@ -11,9 +11,9 @@ const baseUrl = import.meta.env.BASE_URL;
   description="Кто я, как работаю и что важно для меня как для UE разработчика."
 >
   <section class="hero">
-    <span class="badge">About</span>
-    <h1>Обо мне</h1>
-    <p>
+    <span class="badge" data-i18n="about.badge">About</span>
+    <h1 data-i18n="about.title">Обо мне</h1>
+    <p data-i18n="about.subtitle">
       Senior/Lead UE C++ разработчик с фокусом на VR и multiplayer. Люблю системные
       задачи, где важны надежность, прозрачная архитектура и быстрый цикл доставки фич.
     </p>
@@ -21,17 +21,17 @@ const baseUrl = import.meta.env.BASE_URL;
 
   <section class="grid-2">
     <article class="card">
-      <h2>Что для меня важно в работе</h2>
+      <h2 data-i18n="about.values.title">Что для меня важно в работе</h2>
       <ul>
-        <li>Сначала стабильный технический фундамент, затем быстрый рост контента.</li>
-        <li>Прозрачная коммуникация между кодом, артом, техартом и геймдизайном.</li>
-        <li>Решения, которые помогают бизнесу, а не только “красивый код”.</li>
-        <li>Четкий ownership: если фича моя, довожу до продакшена и поддержки.</li>
+        <li data-i18n="about.values.1">Сначала стабильный технический фундамент, затем быстрый рост контента.</li>
+        <li data-i18n="about.values.2">Прозрачная коммуникация между кодом, артом, техартом и геймдизайном.</li>
+        <li data-i18n="about.values.3">Решения, которые помогают бизнесу, а не только красивый код.</li>
+        <li data-i18n="about.values.4">Четкий ownership: если фича моя, довожу до продакшена и поддержки.</li>
       </ul>
     </article>
 
     <article class="card">
-      <h2>Контакты</h2>
+      <h2 data-i18n="about.contacts.title">Контакты</h2>
       <ul>
         <li>
           Email: <a href={`mailto:${profile.data.email}`}>{profile.data.email}</a>
@@ -47,19 +47,19 @@ const baseUrl = import.meta.env.BASE_URL;
           </li>
         )}
         <li>
-          Опыт: <a href={`${baseUrl}experience/`}>подробный таймлайн</a>
+          <a href={`${baseUrl}experience/`} data-i18n="about.exp.link">Опыт: подробный таймлайн</a>
         </li>
       </ul>
     </article>
   </section>
 
   <section class="card">
-    <h2>Чем могу быть полезен команде</h2>
+    <h2 data-i18n="about.help.title">Чем могу быть полезен команде</h2>
     <ul>
-      <li>Лидство и фичмейкерство на действующем продукте с реальными пользователями.</li>
-      <li>Сетевые и VR-системы: от архитектуры до производительности и UX.</li>
-      <li>Опыт backend/frontend мышления, что помогает в системных интеграциях.</li>
-      <li>Сильная прикладная экспертиза по release-процессу и качеству сборок.</li>
+      <li data-i18n="about.help.1">Лидство и фичмейкерство на действующем продукте с реальными пользователями.</li>
+      <li data-i18n="about.help.2">Сетевые и VR-системы: от архитектуры до производительности и UX.</li>
+      <li data-i18n="about.help.3">Опыт backend/frontend мышления, что помогает в системных интеграциях.</li>
+      <li data-i18n="about.help.4">Сильная прикладная экспертиза по release-процессу и качеству сборок.</li>
     </ul>
   </section>
 </BaseLayout>
