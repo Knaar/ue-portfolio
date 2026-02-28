@@ -19,14 +19,24 @@ const contacts = [
   title={`${profile.data.name} | UE Programmer Portfolio`}
   description="Портфолио UE программиста: проекты, подход к разработке и контакты."
 >
-  <section class="hero">
-    <span class="badge">{profile.data.location}</span>
-    <h1>{profile.data.name}</h1>
-    <p>{profile.data.title}</p>
+  <section class="hero hero-grid">
     <div>
-      <a href={`${Astro.base}projects/`}>Смотреть проекты</a>
-      <span> · </span>
-      <a href={`${Astro.base}about/`}>Подробнее обо мне</a>
+      <span class="badge">{profile.data.location}</span>
+      <h1>{profile.data.name}</h1>
+      <p>{profile.data.title}</p>
+      <div>
+        <a href={`${Astro.base}projects/`}>Смотреть проекты</a>
+        <span> · </span>
+        <a href={`${Astro.base}about/`}>Подробнее обо мне</a>
+      </div>
+    </div>
+    <div class="avatar-wrap">
+      <img
+        class="avatar"
+        src={`${Astro.base}images/profile.jpg`}
+        alt="Фото Антона Бордуноса"
+        loading="lazy"
+      />
     </div>
   </section>
 
@@ -47,6 +57,23 @@ const contacts = [
         ))}
       </ul>
     </article>
+  </section>
+
+  <section class="card">
+    <h2>Коротко о результатах</h2>
+    <ul>
+      <li>
+        Выпустил 7 игровых продуктов на едином VR-core (один каркас, разные режимы и
+        игровые оболочки).
+      </li>
+      <li>
+        Участвовал в масштабировании разработки с 3 до 20+ человек в штате.
+      </li>
+      <li>
+        Отвечаю за бизнес-критичные фичи: стрельба, гранаты, урон, взаимодействия,
+        серверная логика, UI/HUD и spectator UI.
+      </li>
+    </ul>
   </section>
 
   <section>
