@@ -1,7 +1,7 @@
 ---
-name: "Антон Бордунос"
+name: "Антон Бардунас"
 title: "Senior / Lead Unreal Engine C++ Developer (VR / Multiplayer)"
-location: "Санкт-Петербург, Россия"
+location: "Europe / Worldwide"
 email: "mr.bordunos@mail.ru"
 telegram: "https://t.me/mrBordunos"
 github: "https://github.com/Knaar"
@@ -46,7 +46,7 @@ UE4/UE5 разработчик с фокусом на VR и мультиплее
 ## Ключевой результат на текущем месте
 
 - Выпущена линейка из 7 игровых продуктов на едином VR-каркасе.
-- Среди релизов: Strike Arcade, Zombie Party, Bezznik, Mafia, Galaktika Arena.
+- Среди релизов: Strike, Arcade, Zombie, Party Games, Birthday Party, Mafia, Galactic Arena.
 - Базовая платформа построена как единый билд с вариативными режимами и механиками.
 - По мере зрелости core-платформы команда переходит от простых режимов к более сложным
   сценариям с AI, новыми механиками и более насыщенными эффектами.
@@ -63,5 +63,3 @@ UE4/UE5 разработчик с фокусом на VR и мультиплее
 - Сценарная система волн (гибкая логика последовательностей событий).
 - Админская UI, spectator UI и игровая HUD-часть через централизованные подсистемы.
 - База локализации, которой пользуется геймдизайн без участия программиста.
-
-Контакт для быстрой связи: Telegram @mrBordunos

@@ -1,6 +1,6 @@
 ---
 title: "LBE VR Shooter Core Systems"
-summary: "Единая VR-core платформа для линейки из 7 игровых продуктов: Strike Arcade, Zombie Party, Bezznik, Mafia, Galaktika Arena и др."
+summary: "Единая VR-core платформа для линейки из 7 игровых продуктов: Strike, Arcade, Zombie, Party Games, Birthday Party, Mafia, Galactic Arena."
 role: "Lead UE C++ Developer"
 period: "2023-2026"
 stack:

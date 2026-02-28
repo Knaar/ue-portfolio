@@ -3,7 +3,9 @@ import { getCollection, getEntry, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const profile = await getEntry("profile", "profile");
-const projects = (await getCollection("projects")).slice(0, 3);
+const projects = (await getCollection("projects"))
+  .sort((a, b) => b.data.period.localeCompare(a.data.period))
+  .slice(0, 3);
 const { Content } = await render(profile);
 
 const contacts = [
@@ -25,42 +27,23 @@ const contacts = [
       <h1>{profile.data.name}</h1>
       <p>{profile.data.title}</p>
       <div>
-        <a href={`${Astro.base}projects/`}>Смотреть проекты</a>
+        <a href={`${Astro.base}experience/`} data-i18n="home.cta.experience">Смотреть опыт</a>
         <span> · </span>
-        <a href={`${Astro.base}about/`}>Подробнее обо мне</a>
+        <a href={`${Astro.base}about/`} data-i18n="home.cta.about">Подробнее обо мне</a>
       </div>
     </div>
     <div class="avatar-wrap">
       <img
         class="avatar"
-        src={`${Astro.base}images/profile.jpg`}
-        alt="Фото Антона Бордуноса"
+        src={`${Astro.base}images/profile.png`}
+        alt="Фото: Антон Бардунас"
         loading="lazy"
       />
     </div>
   </section>
 
-  <section class="grid-2">
-    <article class="card">
-      <h2>Фокус</h2>
-      <ul class="tag-list">
-        {profile.data.focus.map((item) => (
-          <li class="tag">{item}</li>
-        ))}
-      </ul>
-    </article>
-    <article class="card">
-      <h2>Ключевые навыки</h2>
-      <ul class="tag-list">
-        {profile.data.skills.map((skill) => (
-          <li class="tag">{skill}</li>
-        ))}
-      </ul>
-    </article>
-  </section>
-
   <section class="card">
-    <h2>Коротко о результатах</h2>
+    <h2 data-i18n="home.results.title">Коротко о результатах</h2>
     <ul>
       <li>
         Выпустил 7 игровых продуктов на едином VR-core (один каркас, разные режимы и
@@ -98,6 +81,8 @@ const contacts = [
         <ul class="tag-list">
           <li class="tag">Replication</li>
           <li class="tag">Dedicated Server</li>
+          <li class="tag">Backend Integration</li>
+          <li class="tag">JSON/Proto Flows</li>
           <li class="tag">Advanced Sessions</li>
           <li class="tag">Spectator UI</li>
           <li class="tag">Scenario/Wave Systems</li>
@@ -137,7 +122,7 @@ const contacts = [
   </section>
 
   <section>
-    <h2>Избранные проекты</h2>
+    <h2 data-i18n="home.experience.title">Опыт работы (snapshot)</h2>
     <div class="cards">
       {projects.map((project) => (
         <article class="card">
@@ -150,6 +135,9 @@ const contacts = [
         </article>
       ))}
     </div>
+    <p>
+      <a href={`${Astro.base}experience/`} data-i18n="home.experience.more">Открыть полный опыт</a>
+    </p>
   </section>
 
   <section class="card">
@@ -164,7 +152,7 @@ const contacts = [
   </section>
 
   <section class="card">
-    <h2>Как я работаю</h2>
+    <h2 data-i18n="home.approach.title">Профессиональный подход</h2>
     <Content />
   </section>
 </BaseLayout>

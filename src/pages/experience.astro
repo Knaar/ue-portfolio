@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const experience = [
+  {
+    period: "2023 - н.в.",
+    role: "Lead UE C++ Developer, PORTAL TECH",
+    details:
+      "Лид и фичмейкер в VR-продукте: единая core-платформа, релизы 7 игровых продуктов, координация разработки с 3 до 20+ человек в штате."
+  },
+  {
+    period: "2022 - 2023",
+    role: "Unreal Engine Developer, OpenVus",
+    details:
+      "Сетевое 3D-приложение для дистанционного обучения на UE4/UE5: голосовой чат, интерактивная среда, готовый рабочий билд."
+  },
+  {
+    period: "2021 - 2022",
+    role: "UE Tech Artist / Developer, Prostranstvo",
+    details:
+      "VR-туры и презентационные сцены для заказчиков: интерактив, оптимизация и техническое сопровождение показов."
+  },
+  {
+    period: "2018 - 2021",
+    role: "Frontend / Backend Developer (Freelance)",
+    details:
+      "Сайты на конструкторах и CMS, frontend-кастомизация, backend-задачи и автоматизация на Python."
+  }
+];
+---
+
+<BaseLayout
+  title="Опыт | UE Programmer Portfolio"
+  description="Подробный опыт работы UE разработчика: роли, задачи и продуктовый вклад."
+>
+  <section class="hero">
+    <span class="badge">Experience</span>
+    <h1>Опыт работы</h1>
+    <p>Роли, ответственность и продуктовый вклад по основным этапам карьеры.</p>
+  </section>
+
+  <section class="cards">
+    {experience.map((item) => (
+      <article class="card">
+        <p>
+          <strong>{item.period}</strong>
+        </p>
+        <h2>{item.role}</h2>
+        <p>{item.details}</p>
+      </article>
+    ))}
+  </section>
+</BaseLayout>
