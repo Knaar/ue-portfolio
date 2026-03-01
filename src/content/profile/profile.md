@@ -2,7 +2,7 @@
 name: "Антон Бордунос"
 title: "Senior / Lead Unreal Engine C++ Developer (VR / Multiplayer)"
 location: "Europe / Worldwide"
-email: "mr.bordunos@mail.ru"
+email: "mr.bordunos@gmail.com"
 telegram: "https://t.me/mrBordunos"
 github: "https://github.com/Knaar"
 skills:

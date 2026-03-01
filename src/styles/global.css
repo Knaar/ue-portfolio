@@ -132,6 +132,10 @@ a:hover {
   justify-content: center;
 }
 
+.hero-contact-jump {
+  margin-top: 0.75rem;
+}
+
 .avatar-wrap {
   display: flex;
   justify-content: flex-end;
