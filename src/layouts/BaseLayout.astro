@@ -28,22 +28,26 @@ const baseUrl = import.meta.env.BASE_URL;
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href={`${baseUrl}#home`}>UE Portfolio</a>
-      <nav>
-        <a href={`${baseUrl}#home`} data-i18n="nav.home">Home</a>
-        <a href={`${baseUrl}#experience`} data-i18n="nav.experience">Experience</a>
-        <a href={`${baseUrl}#projects`} data-i18n="nav.projects">Portfolio</a>
-        <a href={`${baseUrl}#about`} data-i18n="nav.about">About</a>
-      </nav>
-      <div class="lang-switch">
-        <select id="lang-select" class="lang-select" aria-label="Language selector">
-          <option value="en">EN</option>
-          <option value="ru">RU</option>
-          <option value="es">ES</option>
-          <option value="de">DE</option>
-          <option value="fr">FR</option>
-          <option value="pt">PT</option>
-        </select>
+      <div class="site-header-inner">
+        <a class="brand brand-pill" href={`${baseUrl}#home`} data-i18n="brand.greeting">
+          Hello, colleague
+        </a>
+        <nav>
+          <a href={`${baseUrl}#home`} data-i18n="nav.home">Home</a>
+          <a href={`${baseUrl}#experience`} data-i18n="nav.experience">Experience</a>
+          <a href={`${baseUrl}#projects`} data-i18n="nav.projects">Portfolio</a>
+          <a href={`${baseUrl}#about`} data-i18n="nav.about">About</a>
+        </nav>
+        <div class="lang-switch">
+          <select id="lang-select" class="lang-select" aria-label="Language selector">
+            <option value="en">EN</option>
+            <option value="ru">RU</option>
+            <option value="es">ES</option>
+            <option value="de">DE</option>
+            <option value="fr">FR</option>
+            <option value="pt">PT</option>
+          </select>
+        </div>
       </div>
     </header>
     <main class="container">
@@ -55,6 +59,7 @@ const baseUrl = import.meta.env.BASE_URL;
     <script>
       const dict = {
         en: {
+          "brand.greeting": "Hello, colleague",
           "nav.home": "Home",
           "nav.experience": "Experience",
           "nav.projects": "Portfolio",
@@ -132,6 +137,7 @@ const baseUrl = import.meta.env.BASE_URL;
           "footer.copy": `© ${new Date().getFullYear()} UE Programmer Portfolio`
         },
         ru: {
+          "brand.greeting": "Привет, коллега",
           "nav.home": "Главная",
           "nav.experience": "Опыт",
           "nav.projects": "Портфолио",
@@ -205,6 +211,7 @@ const baseUrl = import.meta.env.BASE_URL;
           "footer.copy": `© ${new Date().getFullYear()} UE Programmer Portfolio`
         },
         es: {
+          "brand.greeting": "Hola, colega",
           "nav.home": "Inicio",
           "nav.experience": "Experiencia",
           "nav.projects": "Portfolio",
@@ -274,6 +281,7 @@ const baseUrl = import.meta.env.BASE_URL;
           "footer.copy": `© ${new Date().getFullYear()} UE Programmer Portfolio`
         },
         de: {
+          "brand.greeting": "Hallo, Kollege",
           "nav.home": "Start",
           "nav.experience": "Erfahrung",
           "nav.projects": "Portfolio",
@@ -343,6 +351,7 @@ const baseUrl = import.meta.env.BASE_URL;
           "footer.copy": `© ${new Date().getFullYear()} UE Programmer Portfolio`
         },
         fr: {
+          "brand.greeting": "Bonjour, collegue",
           "nav.home": "Accueil",
           "nav.experience": "Experience",
           "nav.projects": "Portfolio",
@@ -412,6 +421,7 @@ const baseUrl = import.meta.env.BASE_URL;
           "footer.copy": `© ${new Date().getFullYear()} UE Programmer Portfolio`
         },
         pt: {
+          "brand.greeting": "Ola, colega",
           "nav.home": "Inicio",
           "nav.experience": "Experiencia",
           "nav.projects": "Portfolio",
