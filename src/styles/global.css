@@ -176,10 +176,6 @@ section[id] {
   background: color-mix(in oklab, var(--bg-soft) 90%, black 10%);
 }
 
-.experience-detail {
-  white-space: pre-line;
-}
-
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
