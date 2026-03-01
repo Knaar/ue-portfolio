@@ -117,6 +117,14 @@ a:hover {
   align-items: center;
 }
 
+.hero-intro-card h1 {
+  margin-top: 0;
+}
+
+.hero-intro-card p {
+  margin-bottom: 0;
+}
+
 .avatar-wrap {
   display: flex;
   justify-content: flex-end;
