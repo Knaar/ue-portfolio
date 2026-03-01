@@ -83,4 +83,18 @@ const portfolioItems = [
       </details>
     ))}
   </section>
+
+  <script>
+    const portfolioCards = Array.from(document.querySelectorAll(".portfolio-card"));
+    portfolioCards.forEach((card) => {
+      card.addEventListener("toggle", () => {
+        if (!card.open) return;
+        portfolioCards.forEach((otherCard) => {
+          if (otherCard !== card) {
+            otherCard.open = false;
+          }
+        });
+      });
+    });
+  </script>
 </BaseLayout>
