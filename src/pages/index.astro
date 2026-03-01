@@ -1,12 +1,9 @@
 ---
-import { getCollection, getEntry, render } from "astro:content";
+import { getEntry, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const profile = await getEntry("profile", "profile");
 const { Content } = await render(profile);
-const projects = (await getCollection("projects"))
-  .sort((a, b) => b.data.period.localeCompare(a.data.period))
-  .slice(0, 3);
 const baseUrl = import.meta.env.BASE_URL;
 const experience = [
   {
@@ -46,6 +43,44 @@ const contacts = [
   { label: "LinkedIn", url: profile.data.linkedin },
   { label: "ArtStation", url: profile.data.artstation }
 ].filter((item) => item.url);
+const portfolioItems = [
+  {
+    title: "Sparrow Yard Shooter",
+    image: `${baseUrl}images/portfolio/sparrow-shooter.svg`,
+    description:
+      "Arena prototype where players defend a Moscow courtyard from hyperactive cyber-sparrows. Focus: responsive shooting loop and readable hit feedback.",
+    youtube: "https://youtube.com/",
+    build: "https://example.com/build-sparrow-shooter",
+    guide: "https://example.com/guide-sparrow-shooter"
+  },
+  {
+    title: "Metro Tunnel Rush VR",
+    image: `${baseUrl}images/portfolio/metro-rush.svg`,
+    description:
+      "Co-op VR sprint scenario inside a shifting metro tunnel with dynamic hazards. Focus: comfort-first locomotion and synchronized event timing.",
+    youtube: "https://youtube.com/",
+    build: "https://example.com/build-metro-rush",
+    guide: "https://example.com/guide-metro-rush"
+  },
+  {
+    title: "Factory Siege Protocol",
+    image: `${baseUrl}images/portfolio/factory-siege.svg`,
+    description:
+      "Wave-defense mode set in a modular factory map. Focus: network-stable AI waves, weapon readability, and fast iteration through data-driven tuning.",
+    youtube: "https://youtube.com/",
+    build: "https://example.com/build-factory-siege",
+    guide: "https://example.com/guide-factory-siege"
+  },
+  {
+    title: "Galactic Cart Delivery",
+    image: `${baseUrl}images/portfolio/galactic-cart.svg`,
+    description:
+      "Arcade multiplayer mode where squads escort cargo carts in low-gravity sectors. Focus: teamwork mechanics and spectator-friendly pacing.",
+    youtube: "https://youtube.com/",
+    build: "https://example.com/build-galactic-cart",
+    guide: "https://example.com/guide-galactic-cart"
+  }
+];
 ---
 
 <BaseLayout
@@ -111,22 +146,36 @@ const contacts = [
 
   <section id="projects">
     <h2 data-i18n="home.projects.title">Portfolio</h2>
-    <div class="cards">
-      {projects.map((project) => (
-        <article class="card">
-          <h3>{project.data.title}</h3>
-          <p>{project.data.summary}</p>
-          <p>
-            <strong data-i18n="home.projects.label.role">Role:</strong> {project.data.role} ·{" "}
-            <strong data-i18n="home.projects.label.period">Period:</strong>{" "}
-            {project.data.period}
-          </p>
-        </article>
+    <section class="portfolio-grid">
+      {portfolioItems.map((item) => (
+        <details class="portfolio-card">
+          <summary class="portfolio-summary" aria-label={`Open ${item.title}`}>
+            <img class="portfolio-thumb" src={item.image} alt={`Preview: ${item.title}`} loading="lazy" />
+            <span class="portfolio-title">{item.title}</span>
+          </summary>
+          <div class="portfolio-body">
+            <p>{item.description}</p>
+            <ul class="portfolio-links">
+              <li>
+                <a href={item.youtube} target="_blank" rel="noreferrer" data-i18n="projects.link.youtube">
+                  YouTube video
+                </a>
+              </li>
+              <li>
+                <a href={item.build} target="_blank" rel="noreferrer" data-i18n="projects.link.build">
+                  Build link
+                </a>
+              </li>
+              <li>
+                <a href={item.guide} target="_blank" rel="noreferrer" data-i18n="projects.link.guide">
+                  Guide link
+                </a>
+              </li>
+            </ul>
+          </div>
+        </details>
       ))}
-    </div>
-    <p>
-      <a href={`${baseUrl}projects/`} data-i18n="home.projects.more">Open full portfolio</a>
-    </p>
+    </section>
   </section>
 
   <section class="grid-2" id="about">
@@ -148,4 +197,18 @@ const contacts = [
       </ul>
     </article>
   </section>
+
+  <script>
+    const portfolioCards = Array.from(document.querySelectorAll(".portfolio-card"));
+    portfolioCards.forEach((card) => {
+      card.addEventListener("toggle", () => {
+        if (!card.open) return;
+        portfolioCards.forEach((otherCard) => {
+          if (otherCard !== card) {
+            otherCard.open = false;
+          }
+        });
+      });
+    });
+  </script>
 </BaseLayout>
