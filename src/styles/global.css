@@ -125,6 +125,13 @@ a:hover {
   margin-bottom: 0;
 }
 
+.hero-intro-card {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .avatar-wrap {
   display: flex;
   justify-content: flex-end;
@@ -277,6 +284,10 @@ section[id] {
 
   .hero-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-intro-card {
+    height: auto;
   }
 
   .avatar-wrap {
