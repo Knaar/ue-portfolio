@@ -145,6 +145,11 @@ section[id] {
   gap: 1rem;
 }
 
+.section-block {
+  display: grid;
+  gap: 1rem;
+}
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;

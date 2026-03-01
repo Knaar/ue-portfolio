@@ -175,20 +175,24 @@ const portfolioItems = [
     </div>
   </section>
 
-  <section id="about" class="card">
+  <section id="about" class="section-block">
     <h2 data-i18n="home.about.title">About</h2>
-    <Content />
+    <article class="card">
+      <Content />
+    </article>
   </section>
 
-  <section id="contacts" class="card">
+  <section id="contacts" class="section-block">
     <h2 data-i18n="home.contacts.title">Contacts</h2>
-    <ul>
-      {contacts.map((contact) => (
-        <li>
-          <a href={contact.url}>{contact.label}</a>
-        </li>
-      ))}
-    </ul>
+    <article class="card">
+      <ul>
+        {contacts.map((contact) => (
+          <li>
+            <a href={contact.url}>{contact.label}</a>
+          </li>
+        ))}
+      </ul>
+    </article>
   </section>
 
   <script>
