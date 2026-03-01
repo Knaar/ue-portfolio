@@ -11,28 +11,28 @@ const experience = [
     period: "Apr 2023 - Present",
     role: "PORTAL TECH - Lead UE C++ Programmer",
     details:
-      "Lead multiplayer VR shooter development for LBE Arena on UE4/UE5, including networking and release flow."
+      "Led multiplayer VR shooter development for LBE Arena on UE4/UE5. Designed and maintained network architecture (C++/Blueprints), integrated Advanced Sessions and custom solutions, stabilized Oculus/Pico pipelines, improved FPS/latency/load, and drove features from design docs to release builds."
   },
   {
     key: 2,
     period: "Apr 2022 - May 2023",
     role: "OpenVus - Unreal Engine Developer",
     details:
-      "Built interactive architectural VR projects on UE4/UE5 with gameplay, optimization, and technical demos."
+      "Built interactive architectural VR projects on UE4/UE5, implemented gameplay/interaction/lighting scenarios (Blueprints/C++), optimized scenes for stable VR runtime, and handled technical support for demos."
   },
   {
     key: 3,
     period: "Jun 2021 - Apr 2022",
     role: "Prostranstvo VR - UE Tech Artist / Unreal Developer",
     details:
-      "Delivered VR scenes and interactions with performance tuning and on-site presentation support."
+      "Delivered interactive VR architectural content, built logic and visual scenarios, optimized assets and levels, and supported equipment setup."
   },
   {
     key: 4,
     period: "Jan 2018 - Mar 2021",
     role: "Freelance - Frontend / Backend Web Developer",
     details:
-      "Delivered websites, frontend customization, backend integrations, and Python/PHP automation."
+      "Developed websites/landing pages, customized frontend, handled backend/API tasks, and maintained deployment and SEO basics."
   }
 ];
 
@@ -132,21 +132,18 @@ const portfolioItems = [
       {experience.map((item) => (
         <article class="card">
           <p>
-            <strong data-i18n={`home.exp.${item.key}.period`}>{item.period}</strong>
+            <strong data-i18n={`experience.item.${item.key}.period`}>{item.period}</strong>
           </p>
-          <h3 data-i18n={`home.exp.${item.key}.role`}>{item.role}</h3>
-          <p data-i18n={`home.exp.${item.key}.details`}>{item.details}</p>
+          <h3 data-i18n={`experience.item.${item.key}.role`}>{item.role}</h3>
+          <p data-i18n={`experience.item.${item.key}.details`}>{item.details}</p>
         </article>
       ))}
     </div>
-    <p>
-      <a href={`${baseUrl}experience/`} data-i18n="home.experience.more">Open full timeline</a>
-    </p>
   </section>
 
   <section id="projects">
     <h2 data-i18n="home.projects.title">Portfolio</h2>
-    <section class="portfolio-grid">
+    <div class="portfolio-grid">
       {portfolioItems.map((item) => (
         <details class="portfolio-card">
           <summary class="portfolio-summary" aria-label={`Open ${item.title}`}>
@@ -175,27 +172,23 @@ const portfolioItems = [
           </div>
         </details>
       ))}
-    </section>
+    </div>
   </section>
 
-  <section class="grid-2" id="about">
-    <article class="card">
-      <h2 data-i18n="home.about.title">About</h2>
-      <Content />
-      <p>
-        <a href={`${baseUrl}about/`} data-i18n="home.about.more">Open full version</a>
-      </p>
-    </article>
-    <article class="card">
-      <h2 data-i18n="home.contacts.title">Contacts</h2>
-      <ul>
-        {contacts.map((contact) => (
-          <li>
-            <a href={contact.url}>{contact.label}</a>
-          </li>
-        ))}
-      </ul>
-    </article>
+  <section id="about" class="card">
+    <h2 data-i18n="home.about.title">About</h2>
+    <Content />
+  </section>
+
+  <section id="contacts" class="card">
+    <h2 data-i18n="home.contacts.title">Contacts</h2>
+    <ul>
+      {contacts.map((contact) => (
+        <li>
+          <a href={contact.url}>{contact.label}</a>
+        </li>
+      ))}
+    </ul>
   </section>
 
   <script>

@@ -80,10 +80,18 @@ a:hover {
   padding: 2.5rem 1.25rem 4rem;
 }
 
+.container > section {
+  margin-bottom: 2rem;
+}
+
+.container > section:last-child {
+  margin-bottom: 0;
+}
+
 .hero {
   display: grid;
   gap: 1rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0;
 }
 
 .hero-grid {
