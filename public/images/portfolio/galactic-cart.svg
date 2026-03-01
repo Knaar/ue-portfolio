@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#05263a"/>
+      <stop offset="100%" stop-color="#26a0da"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#g4)"/>
+  <circle cx="180" cy="120" r="18" fill="#d9f5ff"/>
+  <circle cx="320" cy="70" r="10" fill="#d9f5ff"/>
+  <circle cx="1020" cy="140" r="14" fill="#d9f5ff"/>
+  <circle cx="920" cy="80" r="8" fill="#d9f5ff"/>
+  <path d="M0 380 C200 330, 400 450, 600 390 C800 330, 1000 430, 1200 360 L1200 700 L0 700 Z" fill="#0a1f2e" opacity="0.45"/>
+  <rect x="120" y="420" width="960" height="170" rx="18" fill="#092030" opacity="0.65"/>
+  <text x="150" y="505" fill="#eef9ff" font-size="58" font-family="Segoe UI, Arial, sans-serif" font-weight="700">
+    Galactic Cart Delivery
+  </text>
+  <text x="150" y="555" fill="#d8f0ff" font-size="30" font-family="Segoe UI, Arial, sans-serif">
+    Placeholder Preview
+  </text>
+</svg>

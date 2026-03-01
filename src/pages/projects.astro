@@ -1,51 +1,86 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const projects = await getCollection("projects");
-const sortedProjects = projects.sort((a, b) =>
-  b.data.period.localeCompare(a.data.period)
-);
+const baseUrl = import.meta.env.BASE_URL;
+const portfolioItems = [
+  {
+    title: "Sparrow Yard Shooter",
+    image: `${baseUrl}images/portfolio/sparrow-shooter.svg`,
+    description:
+      "Arena prototype where players defend a Moscow courtyard from hyperactive cyber-sparrows. Focus: responsive shooting loop and readable hit feedback.",
+    youtube: "https://youtube.com/",
+    build: "https://example.com/build-sparrow-shooter",
+    guide: "https://example.com/guide-sparrow-shooter"
+  },
+  {
+    title: "Metro Tunnel Rush VR",
+    image: `${baseUrl}images/portfolio/metro-rush.svg`,
+    description:
+      "Co-op VR sprint scenario inside a shifting metro tunnel with dynamic hazards. Focus: comfort-first locomotion and synchronized event timing.",
+    youtube: "https://youtube.com/",
+    build: "https://example.com/build-metro-rush",
+    guide: "https://example.com/guide-metro-rush"
+  },
+  {
+    title: "Factory Siege Protocol",
+    image: `${baseUrl}images/portfolio/factory-siege.svg`,
+    description:
+      "Wave-defense mode set in a modular factory map. Focus: network-stable AI waves, weapon readability, and fast iteration through data-driven tuning.",
+    youtube: "https://youtube.com/",
+    build: "https://example.com/build-factory-siege",
+    guide: "https://example.com/guide-factory-siege"
+  },
+  {
+    title: "Galactic Cart Delivery",
+    image: `${baseUrl}images/portfolio/galactic-cart.svg`,
+    description:
+      "Arcade multiplayer mode where squads escort cargo carts in low-gravity sectors. Focus: teamwork mechanics and spectator-friendly pacing.",
+    youtube: "https://youtube.com/",
+    build: "https://example.com/build-galactic-cart",
+    guide: "https://example.com/guide-galactic-cart"
+  }
+];
 ---
 
 <BaseLayout
-  title="Projects | UE Programmer Portfolio"
-  description="Gameplay, networking, and tools case studies in Unreal Engine."
+  title="Portfolio | UE Programmer Portfolio"
+  description="Selected portfolio cards with previews and expandable details."
 >
   <section class="hero">
-    <span class="badge" data-i18n="projects.badge">Project Cases</span>
-    <h1 data-i18n="projects.title">Projects</h1>
+    <span class="badge" data-i18n="projects.badge">Portfolio Cases</span>
+    <h1 data-i18n="projects.title">Portfolio</h1>
     <p data-i18n="projects.subtitle">
-      Case studies focused on implementation, outcomes, and team impact.
+      Click a card to expand preview, description, and links.
     </p>
   </section>
 
-  <section class="cards">
-    {sortedProjects.map((project) => (
-      <article class="card">
-        <h2>{project.data.title}</h2>
-        <p>{project.data.summary}</p>
-        <p>
-          <strong data-i18n="projects.label.role">Role:</strong> {project.data.role} ·{" "}
-          <strong data-i18n="projects.label.period">Period:</strong>{" "}
-          {project.data.period}
-        </p>
-        <ul>
-          {project.data.highlights.map((highlight) => (
-            <li>{highlight}</li>
-          ))}
-        </ul>
-        {project.data.links.length > 0 && (
-          <p>
-            {project.data.links.map((link, index) => (
-              <>
-                {index > 0 && <span> · </span>}
-                <a href={link.url}>{link.label}</a>
-              </>
-            ))}
-          </p>
-        )}
-      </article>
+  <section class="portfolio-grid">
+    {portfolioItems.map((item) => (
+      <details class="portfolio-card">
+        <summary class="portfolio-summary" aria-label={`Open ${item.title}`}>
+          <img class="portfolio-thumb" src={item.image} alt={`Preview: ${item.title}`} loading="lazy" />
+          <span class="portfolio-title">{item.title}</span>
+        </summary>
+        <div class="portfolio-body">
+          <p>{item.description}</p>
+          <ul class="portfolio-links">
+            <li>
+              <a href={item.youtube} target="_blank" rel="noreferrer" data-i18n="projects.link.youtube">
+                YouTube video
+              </a>
+            </li>
+            <li>
+              <a href={item.build} target="_blank" rel="noreferrer" data-i18n="projects.link.build">
+                Build link
+              </a>
+            </li>
+            <li>
+              <a href={item.guide} target="_blank" rel="noreferrer" data-i18n="projects.link.guide">
+                Guide link
+              </a>
+            </li>
+          </ul>
+        </div>
+      </details>
     ))}
   </section>
 </BaseLayout>
