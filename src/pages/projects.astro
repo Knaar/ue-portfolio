@@ -6,7 +6,7 @@ const portfolioItems = [
     title: "ShootEmUp",
     image: `${baseUrl}images/portfolio/shooter-pixel.png`,
     description:
-      "Arena prototype where players defend a Moscow courtyard from hyperactive cyber-sparrows. Focus: responsive shooting loop and readable hit feedback.",
+      "Врывайся в мясорубку, вдохновлённую золотой эрой <strong>Quake, Doom и Half-Life</strong>. Никаких долгих вступлений — только бег, стрельба и хаос на аренах.<br><br>Хватай пулемёт или гранатомёт, собирай патроны и аптечки и кроши орды врагов. Быстрый темп, простая формула старых шутеров и чистый фан: зашёл, устроил бойню, вышел.<br><br>Пет-проект на <strong>Unreal Engine</strong>, собранный из бесплатных ассетов и анимаций, с собственным ИИ врагов и эффектами на <strong>Niagara</strong>. Маленькая, но честная дань классическим шутерам, где главное — <strong>движение, стрельба и адреналин</strong>.",
     youtube: "https://youtube.com/",
     build: "https://example.com/build-sparrow-shooter",
     guide: "https://github.com/Knaar/STU"
@@ -61,7 +61,7 @@ const portfolioItems = [
           <span class="portfolio-title">{item.title}</span>
         </summary>
         <div class="portfolio-body">
-          <p>{item.description}</p>
+          <p set:html={item.description} />
           <ul class="portfolio-links">
             <li>
               <a href={item.youtube} target="_blank" rel="noreferrer" data-i18n="projects.link.youtube">
