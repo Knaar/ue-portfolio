@@ -249,7 +249,7 @@ section[id] {
   bottom: 0.7rem;
   padding: 0.45rem 0.6rem;
   border-radius: 8px;
-  background: color-mix(in oklab, black 55%, transparent 45%);
+  background: #000000;
   color: #f3f7ff;
   font-weight: 700;
   font-size: 0.95rem;
