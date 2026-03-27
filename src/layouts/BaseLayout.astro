@@ -64,6 +64,8 @@ const baseUrl = import.meta.env.BASE_URL;
           "nav.experience": "Experience",
           "nav.projects": "Portfolio",
           "nav.about": "About",
+          "profile.name": "Anton Bordunos",
+          "profile.avatarAlt": "Photo: Anton Bordunos",
           "home.cta.experience": "View Experience",
           "home.cta.about": "About Me",
           "home.cta.contacts": "Jump to contacts",
@@ -145,6 +147,8 @@ const baseUrl = import.meta.env.BASE_URL;
           "nav.experience": "Опыт",
           "nav.projects": "Портфолио",
           "nav.about": "Обо мне",
+          "profile.name": "Антон Бордунос",
+          "profile.avatarAlt": "Фото: Антон Бордунос",
           "home.cta.experience": "Смотреть опыт",
           "home.cta.about": "Обо мне",
           "home.cta.contacts": "К контактам",
@@ -516,6 +520,12 @@ const baseUrl = import.meta.env.BASE_URL;
           const key = el.getAttribute("data-i18n-html");
           if (key && table[key]) {
             el.innerHTML = table[key];
+          }
+        });
+        document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-alt");
+          if (key && table[key]) {
+            el.setAttribute("alt", table[key]);
           }
         });
         const select = document.getElementById("lang-select");

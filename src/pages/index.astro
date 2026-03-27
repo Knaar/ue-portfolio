@@ -90,7 +90,7 @@ const portfolioItems = [
 >
   <section class="hero hero-grid" id="home">
     <article class="card hero-intro-card">
-      <h1>{profile.data.name}</h1>
+      <h1 data-i18n="profile.name">{profile.data.name}</h1>
       <p>{profile.data.title}</p>
       <p class="hero-contact-jump">
         <a href="#contacts" data-i18n="home.cta.contacts">Jump to contacts</a>
@@ -100,6 +100,7 @@ const portfolioItems = [
       <img
         class="avatar"
         src={`${baseUrl}images/profile.png`}
+        data-i18n-alt="profile.avatarAlt"
         alt="Фото: Антон Бордунос"
         loading="lazy"
       />
