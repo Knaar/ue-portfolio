@@ -91,10 +91,11 @@ const baseUrl = import.meta.env.BASE_URL;
           "home.projects.label.period": "Period:",
           "home.about.title": "About",
           "home.about.more": "Open Full Version",
+          "home.about.content": `<p>I develop and optimize gameplay and networking systems in Unreal Engine, from prototype to stable production. I take full ownership of a feature end to end: architecture, implementation, pre-release stabilization, and post-release support.</p><p>I have hands-on experience with backend/frontend integrations (JSON/REST, service workflows, Python automation), which helps connect UE client logic to external systems faster. I also have practical CI/CD experience with Jenkins, build automation, and release pipelines.</p><h2>How I work</h2><ul><li>Task - implementation - verifiable result for both the product and the team.</li><li>Priority on stability under load and predictable releases.</li><li>Transparent communication between programming, art, tech art, and QA.</li><li>Minimizing regressions through reproducible cases and systematic debugging.</li></ul>`,
           "home.contacts.title": "Contacts",
           "home.focus.title": "Focus",
           "home.skills.title": "Core Skills",
-          "projects.badge": "Portfolio Cases",
+          "projects.badge": "Portfolio",
           "projects.label.role": "Role:",
           "projects.label.period": "Period:",
           "about.title": "About",
@@ -116,7 +117,8 @@ const baseUrl = import.meta.env.BASE_URL;
           "projects.subtitle": "Click a card to expand the preview, description, and links.",
           "projects.link.youtube": "YouTube video",
           "projects.link.build": "Build link",
-          "projects.link.guide": "Guide link",
+          "projects.link.guide": "GitHub link",
+          "projects.item.shootemup.description": `Jump into a bloodbath inspired by the golden era of <strong>Quake, Doom, and Half-Life</strong>. No long intros, just running, shooting, and chaos across arena maps.<br><br>Grab a machine gun or a grenade launcher, collect ammo and medkits, and tear through hordes of enemies. Fast pace, the simple formula of old-school shooters, and pure fun: jump in, cause carnage, jump out.<br><br>A pet project built in <strong>Unreal Engine</strong> using free assets and animations, with custom enemy AI and <strong>Niagara</strong> effects. A small but honest tribute to classic shooters where the core is <strong>movement, shooting, and adrenaline</strong>.`,
           "experience.title": "Work Experience",
           "experience.subtitle": "Roles, responsibilities, and product impact.",
           "experience.item.1.period": "Apr 2023 - Present",
@@ -166,6 +168,7 @@ const baseUrl = import.meta.env.BASE_URL;
           "home.projects.label.period": "Период:",
           "home.about.title": "Обо мне",
           "home.about.more": "Открыть полную версию",
+          "home.about.content": `<p>Разрабатываю и оптимизирую игровой процесс и сетевые системы в Unreal Engine: от прототипа до стабильного продакшена. Беру полную ответственность за фичу целиком — архитектура, реализация, стабилизация перед релизом и поддержка после.</p><p>Есть прикладной опыт backend/frontend-интеграций (JSON/REST, сервисные сценарии, Python-автоматизация), что помогает быстрее стыковать клиентскую UE-логику с внешними системами. Есть практический опыт CI/CD: Jenkins, автоматизация сборок и релизных пайплайнов.</p><h2>Как я работаю</h2><ul><li>Задача -> реализация -> проверяемый результат для продукта и команды.</li><li>Приоритет стабильной работы под нагрузкой и предсказуемых релизов.</li><li>Прозрачная коммуникация между отделом программирования, артом, техартом и QA.</li><li>Минимизация регрессий через воспроизводимые кейсы и системную отладку.</li></ul>`,
           "home.contacts.title": "Контакты",
           "home.focus.title": "Фокус",
           "home.skills.title": "Ключевые навыки",
@@ -192,6 +195,7 @@ const baseUrl = import.meta.env.BASE_URL;
           "projects.link.youtube": "Видео на YouTube",
           "projects.link.build": "Ссылка на билд",
           "projects.link.guide": "Ссылка на гит",
+          "projects.item.shootemup.description": `Врывайся в мясорубку, вдохновлённую золотой эрой <strong>Quake, Doom и Half-Life</strong>. Никаких долгих вступлений — только бег, стрельба и хаос на аренах.<br><br>Хватай пулемёт или гранатомёт, собирай патроны и аптечки и кроши орды врагов. Быстрый темп, простая формула старых шутеров и чистый фан: зашёл, устроил бойню, вышел.<br><br>Пет-проект на <strong>Unreal Engine</strong>, собранный из бесплатных ассетов и анимаций, с собственным ИИ врагов и эффектами на <strong>Niagara</strong>. Маленькая, но честная дань классическим шутерам, где главное — <strong>движение, стрельба и адреналин</strong>.`,
           "experience.title": "Опыт работы",
           "experience.subtitle": "Роли, ответственность и вклад в продукт.",
           "experience.item.1.period": "Апрель 2023 - настоящее время",
@@ -506,6 +510,12 @@ const baseUrl = import.meta.env.BASE_URL;
           const key = el.getAttribute("data-i18n");
           if (key && table[key]) {
             el.textContent = table[key];
+          }
+        });
+        document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-html");
+          if (key && table[key]) {
+            el.innerHTML = table[key];
           }
         });
         const select = document.getElementById("lang-select");
