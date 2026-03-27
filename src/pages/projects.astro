@@ -13,6 +13,13 @@ const portfolioItems = [
     guide: "https://github.com/Knaar/STU"
   },
   {
+    title: "UE Object Pool Subsystem",
+    image: `${baseUrl}images/portfolio/object-pool-plugin.svg`,
+    description:
+      "Плагин для Unreal Engine, который выносит object pooling на уровень <strong>WorldSubsystem</strong> и упрощает повторное использование акторов без лишнего мусора в runtime. Сделан с упором на производительность, предсказуемый жизненный цикл объектов и удобную интеграцию в gameplay-системы.",
+    guide: "https://github.com/Knaar/ue-object-pool-subsystem"
+  },
+  {
     title: "Metro Tunnel Rush VR",
     image: `${baseUrl}images/portfolio/metro-rush.svg`,
     description:
@@ -64,21 +71,27 @@ const portfolioItems = [
         <div class="portfolio-body">
           <p data-i18n-html={item.descriptionKey} set:html={item.description} />
           <ul class="portfolio-links">
-            <li>
-              <a href={item.youtube} target="_blank" rel="noreferrer" data-i18n="projects.link.youtube">
-                YouTube video
-              </a>
-            </li>
-            <li>
-              <a href={item.build} target="_blank" rel="noreferrer" data-i18n="projects.link.build">
-                Build link
-              </a>
-            </li>
-            <li>
-              <a href={item.guide} target="_blank" rel="noreferrer" data-i18n="projects.link.guide">
-                Guide link
-              </a>
-            </li>
+            {item.youtube && (
+              <li>
+                <a href={item.youtube} target="_blank" rel="noreferrer" data-i18n="projects.link.youtube">
+                  YouTube video
+                </a>
+              </li>
+            )}
+            {item.build && (
+              <li>
+                <a href={item.build} target="_blank" rel="noreferrer" data-i18n="projects.link.build">
+                  Build link
+                </a>
+              </li>
+            )}
+            {item.guide && (
+              <li>
+                <a href={item.guide} target="_blank" rel="noreferrer" data-i18n="projects.link.guide">
+                  Guide link
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </details>

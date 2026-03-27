@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f1728"/>
+      <stop offset="100%" stop-color="#18345f"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#56ccf2"/>
+      <stop offset="100%" stop-color="#6fcf97"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect x="96" y="92" width="1008" height="516" rx="28" fill="#0a1020" opacity="0.88"/>
+  <rect x="140" y="140" width="260" height="168" rx="18" fill="#101c34" stroke="#3f6fb0" stroke-width="4"/>
+  <rect x="470" y="140" width="260" height="168" rx="18" fill="#101c34" stroke="#3f6fb0" stroke-width="4"/>
+  <rect x="800" y="140" width="260" height="168" rx="18" fill="#101c34" stroke="#3f6fb0" stroke-width="4"/>
+  <rect x="305" y="212" width="95" height="22" rx="11" fill="url(#accent)"/>
+  <rect x="635" y="212" width="95" height="22" rx="11" fill="url(#accent)"/>
+  <path d="M400 224 H470" stroke="#7fd9ff" stroke-width="10" stroke-linecap="round"/>
+  <path d="M730 224 H800" stroke="#7fd9ff" stroke-width="10" stroke-linecap="round"/>
+  <rect x="140" y="390" width="920" height="126" rx="20" fill="#0f1a31"/>
+  <text x="180" y="470" fill="#eef5ff" font-size="58" font-family="Segoe UI, Arial, sans-serif" font-weight="700">
+    UE Object Pool Subsystem
+  </text>
+  <text x="180" y="530" fill="#9bc3ff" font-size="28" font-family="Segoe UI, Arial, sans-serif">
+    WorldSubsystem actor pooling plugin
+  </text>
+</svg>
