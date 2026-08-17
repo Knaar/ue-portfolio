@@ -1,6 +1,7 @@
 ---
 import { getEntry, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { portfolioItems } from "../data/portfolio";
 
 const profile = await getEntry("profile", "profile");
 const { Content } = await render(profile);
@@ -43,51 +44,6 @@ const contacts = [
   { label: "LinkedIn", url: profile.data.linkedin },
   { label: "ArtStation", url: profile.data.artstation }
 ].filter((item) => item.url);
-const portfolioItems = [
-  {
-    title: "ShootEmUp",
-    image: `${baseUrl}images/portfolio/shooter-pixel.png`,
-    descriptionKey: "projects.item.shootemup.description",
-    description:
-      "Врывайся в мясорубку, вдохновлённую золотой эрой <strong>Quake, Doom и Half-Life</strong>. Никаких долгих вступлений — только бег, стрельба и хаос на аренах.<br><br>Хватай пулемёт или гранатомёт, собирай патроны и аптечки и кроши орды врагов. Быстрый темп, простая формула старых шутеров и чистый фан: зашёл, устроил бойню, вышел.<br><br>Пет-проект на <strong>Unreal Engine</strong>, собранный из бесплатных ассетов и анимаций, с собственным ИИ врагов и эффектами на <strong>Niagara</strong>. Маленькая, но честная дань классическим шутерам, где главное — <strong>движение, стрельба и адреналин</strong>.",
-    youtube: "https://youtube.com/",
-    build: "https://github.com/Knaar/STU/releases/download/v0.1/ShootEmUp.7z",
-    guide: "https://github.com/Knaar/STU"
-  },
-  {
-    title: "UE Object Pool Subsystem",
-    image: `${baseUrl}images/portfolio/object-pool-plugin.svg`,
-    descriptionKey: "projects.item.objectpool.description",
-    description:
-      "Плагин для Unreal Engine, который выносит object pooling на уровень <strong>WorldSubsystem</strong> и упрощает повторное использование акторов без лишнего мусора в runtime. Сделан с упором на производительность, предсказуемый жизненный цикл объектов и удобную интеграцию в gameplay-системы.",
-    guide: "https://github.com/Knaar/ue-object-pool-subsystem"
-  },
-  {
-    title: "Portal Strike VR",
-    image: `${baseUrl}images/portfolio/portal-strike-vr-trailer.jpg`,
-    description:
-      "Location-based multiplayer VR PvP shooter for arena venues, built around fast competitive matches and high-energy group sessions.",
-    youtube: "https://www.youtube.com/watch?v=_LeL84xmQEI"
-  },
-  {
-    title: "Factory Siege Protocol",
-    image: `${baseUrl}images/portfolio/factory-siege.svg`,
-    description:
-      "Wave-defense mode set in a modular factory map. Focus: network-stable AI waves, weapon readability, and fast iteration through data-driven tuning.",
-    youtube: "https://youtube.com/",
-    build: "https://example.com/build-factory-siege",
-    guide: "https://example.com/guide-factory-siege"
-  },
-  {
-    title: "Galactic Cart Delivery",
-    image: `${baseUrl}images/portfolio/galactic-cart.svg`,
-    description:
-      "Arcade multiplayer mode where squads escort cargo carts in low-gravity sectors. Focus: teamwork mechanics and spectator-friendly pacing.",
-    youtube: "https://youtube.com/",
-    build: "https://example.com/build-galactic-cart",
-    guide: "https://example.com/guide-galactic-cart"
-  }
-];
 ---
 
 <BaseLayout
@@ -153,7 +109,7 @@ const portfolioItems = [
       {portfolioItems.map((item) => (
         <details class="portfolio-card">
           <summary class="portfolio-summary" aria-label={`Open ${item.title}`}>
-            <img class="portfolio-thumb" src={item.image} alt={`Preview: ${item.title}`} loading="lazy" />
+            <img class="portfolio-thumb" src={`${baseUrl}${item.image}`} alt={`Preview: ${item.title}`} loading="lazy" />
             <span class="portfolio-title">{item.title}</span>
           </summary>
           <div class="portfolio-body">
