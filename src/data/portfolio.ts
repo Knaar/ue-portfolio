@@ -50,13 +50,55 @@ export const portfolioItems = [
     ]
   },
   {
-    title: "Galactic Cart Delivery",
-    image: "images/portfolio/galactic-cart.svg",
-    descriptionKey: "projects.item.galacticcart.description",
+    title: "Birthday Party",
+    image: "images/portfolio/birthday-party-trailer.jpg",
+    descriptionKey: "projects.item.birthdayparty.description",
     description:
-      "Arcade multiplayer mode in which squads escort cargo carts through low-gravity sectors. Focus: teamwork mechanics and spectator-friendly pacing.",
-    youtube: "https://youtube.com/",
-    build: "https://example.com/build-galactic-cart",
-    guide: "https://example.com/guide-galactic-cart"
+      "A collection of VR mini-games for birthday groups and celebrations, designed for short, accessible rounds and lively shared play.",
+    videos: [
+      {
+        labelKey: "projects.link.teaserTrailer",
+        label: "Teaser trailer",
+        url: "https://www.youtube.com/watch?v=hRhIwfO33l8"
+      }
+    ]
+  },
+  {
+    title: "Portal Party Games",
+    image: "images/portfolio/portal-party-games-trailer.jpg",
+    descriptionKey: "projects.item.partygames.description",
+    description:
+      "A social collection of VR mini-games with varied characters, mechanics, and fast rounds designed for shared group play.",
+    videos: [
+      {
+        labelKey: "projects.link.officialTrailer",
+        label: "Official trailer",
+        url: "https://www.youtube.com/watch?v=GtBp1QHQZsI"
+      },
+      {
+        labelKey: "projects.link.teaserTrailer",
+        label: "Teaser trailer",
+        url: "https://www.youtube.com/watch?v=kxZN1O44LaE"
+      }
+    ]
+  },
+  {
+    title: "Portal Mafia",
+    image: "images/portfolio/portal-mafia-trailer.jpg",
+    descriptionKey: "projects.item.portalmafia.description",
+    description:
+      "A tactical VR PvP shooter set in a crime-themed city, balancing firearms, grenades, and coordinated team play.",
+    videos: [
+      {
+        labelKey: "projects.link.tacticalGameplay",
+        label: "Tactical gameplay",
+        url: "https://www.youtube.com/watch?v=mZj83Tkri2A"
+      },
+      {
+        labelKey: "projects.link.teaserTrailer",
+        label: "Teaser trailer",
+        url: "https://www.youtube.com/watch?v=x7Mh-SYlbXU"
+      }
+    ]
   }
 ];
