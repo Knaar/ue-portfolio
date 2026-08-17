@@ -100,5 +100,24 @@ export const portfolioItems = [
         url: "https://www.youtube.com/watch?v=x7Mh-SYlbXU"
       }
     ]
+  },
+  {
+    title: "Portal Zombie REMASTERED",
+    image: "images/portfolio/portal-zombie-remastered-trailer.jpg",
+    descriptionKey: "projects.item.portalzombie.description",
+    description:
+      "A VR PvE zombie shooter set across themed locations, with varied enemies and fast, accessible action for groups.",
+    videos: [
+      {
+        labelKey: "projects.link.officialTrailer",
+        label: "Official trailer",
+        url: "https://www.youtube.com/watch?v=LiQJ2VMtSb4"
+      },
+      {
+        labelKey: "projects.link.teaserTrailer",
+        label: "Teaser trailer",
+        url: "https://www.youtube.com/watch?v=-qpfbUqw1gU"
+      }
+    ]
   }
 ];
