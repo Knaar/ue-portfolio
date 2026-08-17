@@ -115,7 +115,14 @@ const contacts = [
           <div class="portfolio-body">
             <p data-i18n-html={item.descriptionKey} set:html={item.description} />
             <ul class="portfolio-links">
-              {item.youtube && (
+            {item.videos?.map((video) => (
+              <li>
+                <a href={video.url} target="_blank" rel="noreferrer" data-i18n={video.labelKey}>
+                  {video.label}
+                </a>
+              </li>
+            ))}
+            {!item.videos && item.youtube && (
                 <li>
                   <a href={item.youtube} target="_blank" rel="noreferrer" data-i18n="projects.link.youtube">
                     YouTube video

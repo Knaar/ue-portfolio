@@ -26,14 +26,28 @@ export const portfolioItems = [
     youtube: "https://www.youtube.com/watch?v=_LeL84xmQEI"
   },
   {
-    title: "Factory Siege Protocol",
-    image: "images/portfolio/factory-siege.svg",
-    descriptionKey: "projects.item.factorysiege.description",
+    title: "Galactic Arena",
+    image: "images/portfolio/galactic-arena-trailer.jpg",
+    descriptionKey: "projects.item.galacticarena.description",
     description:
-      "Wave-defense mode set in a modular factory map. Focus: network-stable AI waves, clear weapon feedback, and rapid iteration through data-driven tuning.",
-    youtube: "https://youtube.com/",
-    build: "https://example.com/build-factory-siege",
-    guide: "https://example.com/guide-factory-siege"
+      "A VR arena shooter with varied weapons, armor, vertical maps, and distinct balance for both firearms and throwable equipment.",
+    videos: [
+      {
+        labelKey: "projects.link.gameplayOverview",
+        label: "Gameplay overview",
+        url: "https://www.youtube.com/watch?v=nfoJWVN5M30"
+      },
+      {
+        labelKey: "projects.link.tacticalGameplay",
+        label: "Tactical gameplay",
+        url: "https://www.youtube.com/watch?v=3EvvbzXgaeU"
+      },
+      {
+        labelKey: "projects.link.officialTrailer",
+        label: "Official trailer",
+        url: "https://www.youtube.com/watch?v=9JB8oJpUJBk"
+      }
+    ]
   },
   {
     title: "Galactic Cart Delivery",
